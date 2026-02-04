@@ -16,14 +16,5 @@ export default defineConfig({
       lastmod: new Date(),
     }),
   ],
-  markdown: {
-    shikiConfig: {
-      theme: 'github-dark',
-    },
-  },
-  vite: {
-    ssr: {
-      noExternal: ['react-icons'],
-    },
-  },
+  output: 'static',
 });

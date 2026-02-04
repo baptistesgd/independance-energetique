@@ -25,7 +25,7 @@ const blogCollection = defineCollection({
     ]),
     tags: z.array(z.string()),
     featured: z.boolean().default(false),
-    readingTime: z.number(), // minutes
+    readingTime: z.number(),
   }),
 });
 
