@@ -1,19 +1,21 @@
 {
   "name": "pole-energie-autonomie",
   "type": "module",
-  "version": "1.0.0",
-  "description": "Site de génération de leads pour solutions énergétiques - Panneaux solaires, Batteries, Bornes de recharge",
+  "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
-},
+  },
   "dependencies": {
     "astro": "^4.0.0",
     "tailwindcss": "^3.4.0",
     "@astrojs/tailwind": "^5.1.0",
-    "@tailwindcss/typography": "^0.5.10"
+    "@tailwindcss/typography": "^0.5.10",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "@astrojs/react": "^3.0.0"
   }
 }
