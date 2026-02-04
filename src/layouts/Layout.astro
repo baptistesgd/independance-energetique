@@ -1,0 +1,164 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import StickyButton from '../components/StickyButton.astro';
+import { SITE_CONFIG, generateLocalBusinessSchema } from '../utils/seo';
+
+export interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  ogImage?: string;
+  ogType?: 'website' | 'article';
+  publishedDate?: string;
+  modifiedDate?: string;
+  author?: string;
+  keywords?: string[];
+  noindex?: boolean;
+  schema?: object;
+}
+
+const {
+  title,
+  description,
+  canonical,
+  ogImage = '/images/og-default.webp',
+  ogType = 'website',
+  publishedDate,
+  modifiedDate,
+  author,
+  keywords = [],
+  noindex = false,
+  schema,
+} = Astro.props;
+
+const fullTitle = `${title} | ${SITE_CONFIG.name}`;
+const canonicalUrl = canonical || new URL(Astro.url.pathname, SITE_CONFIG.url).toString();
+const ogImageUrl = ogImage.startsWith('http') ? ogImage : new URL(ogImage, SITE_CONFIG.url).toString();
+
+// Schema par défaut (LocalBusiness) + schema custom si fourni
+const schemas = [generateLocalBusinessSchema()];
+if (schema) {
+  schemas.push(schema);
+}
+---
+
+<!doctype html>
+<html lang="fr" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- SEO Essentials -->
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    {keywords.length > 0 && <meta name="keywords" content={keywords.join(', ')} />}
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:locale" content={SITE_CONFIG.locale} />
+    <meta property="og:site_name" content={SITE_CONFIG.name} />
+    
+    <!-- Article specific -->
+    {publishedDate && <meta property="article:published_time" content={publishedDate} />}
+    {modifiedDate && <meta property="article:modified_time" content={modifiedDate} />}
+    {author && <meta property="article:author" content={author} />}
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalUrl} />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+    <meta name="twitter:site" content={SITE_CONFIG.twitterHandle} />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    
+    <!-- Preconnect pour performances -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <!-- Theme color -->
+    <meta name="theme-color" content="#16a34a" />
+    
+    <!-- JSON-LD Structured Data -->
+    {schemas.map((s) => (
+      <script type="application/ld+json" set:html={JSON.stringify(s)} />
+    ))}
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" />
+  </head>
+  
+  <body class="min-h-screen flex flex-col bg-white text-dark-800 antialiased">
+    <!-- Skip to main content (accessibilité) -->
+    <a 
+      href="#main-content" 
+      class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary-600 focus:text-white focus:rounded-lg"
+    >
+      Aller au contenu principal
+    </a>
+    
+    <Header />
+    
+    <main id="main-content" class="flex-grow">
+      <slot />
+    </main>
+    
+    <Footer />
+    
+    <!-- Bouton Sticky Calculateur -->
+    <StickyButton />
+    
+    <!-- Script pour animations au scroll -->
+    <script>
+      // Intersection Observer pour animations d'entrée
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1,
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-fade-in');
+            entry.target.classList.remove('opacity-0');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('[data-animate]').forEach((el) => {
+        el.classList.add('opacity-0');
+        observer.observe(el);
+      });
+
+      // Smooth scroll pour ancres internes
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href');
+          if (targetId && targetId !== '#') {
+            const target = document.querySelector(targetId);
+            if (target) {
+              target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start',
+              });
+            }
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

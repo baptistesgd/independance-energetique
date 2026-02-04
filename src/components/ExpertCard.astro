@@ -1,0 +1,84 @@
+---
+import type { Expert } from '../data/experts';
+
+interface Props {
+  expert: Expert;
+}
+
+const { expert } = Astro.props;
+---
+
+<div class="card-hover group">
+  <div class="flex flex-col sm:flex-row gap-6">
+    <!-- Photo expert -->
+    <div class="flex-shrink-0">
+      <div class="w-24 h-24 sm:w-32 sm:h-32 rounded-2xl bg-gradient-to-br from-primary-100 to-primary-200 flex items-center justify-center overflow-hidden">
+        <!-- Placeholder avatar si pas d'image -->
+        <svg class="w-16 h-16 text-primary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+        </svg>
+      </div>
+    </div>
+    
+    <!-- Infos -->
+    <div class="flex-grow">
+      <div class="flex flex-wrap items-center gap-3 mb-2">
+        <h3 class="text-xl font-bold text-dark-900">{expert.name}</h3>
+        <span class="badge-green text-xs">{expert.experience}</span>
+      </div>
+      
+      <p class="text-primary-600 font-medium text-sm mb-3">{expert.role}</p>
+      
+      <p class="text-dark-600 text-sm leading-relaxed mb-4">
+        {expert.bio}
+      </p>
+      
+      <!-- Expertises -->
+      <div class="mb-4">
+        <p class="text-xs text-dark-500 uppercase tracking-wider mb-2">Domaines d'expertise</p>
+        <div class="flex flex-wrap gap-2">
+          {expert.expertise.map((skill) => (
+            <span class="px-2 py-1 bg-dark-100 text-dark-700 rounded-lg text-xs font-medium">
+              {skill}
+            </span>
+          ))}
+        </div>
+      </div>
+      
+      <!-- Certifications -->
+      <div class="mb-4">
+        <p class="text-xs text-dark-500 uppercase tracking-wider mb-2">Certifications</p>
+        <div class="flex flex-wrap gap-2">
+          {expert.certifications.map((cert) => (
+            <span class="inline-flex items-center gap-1 px-2 py-1 bg-primary-50 text-primary-700 rounded-lg text-xs font-medium">
+              <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+              </svg>
+              {cert}
+            </span>
+          ))}
+        </div>
+      </div>
+      
+      <!-- Sources -->
+      <div class="pt-4 border-t border-dark-100">
+        <p class="text-xs text-dark-400">
+          Sources vérifiées : 
+          {expert.sources.map((source, i) => (
+            <>
+              <a 
+                href={source} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="text-primary-600 hover:underline"
+              >
+                {new URL(source).hostname.replace('www.', '')}
+              </a>
+              {i < expert.sources.length - 1 && ', '}
+            </>
+          ))}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,132 @@
+---
+const navLinks = [
+  { label: 'Accueil', href: '/' },
+  { label: 'Solaire', href: '/#panneaux-solaires' },
+  { label: 'Batteries', href: '/#batteries-stockage' },
+  { label: 'Bornes VE', href: '/#bornes-recharge' },
+  { label: 'Blog', href: '/blog' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-dark-100 shadow-sm">
+  <div class="container-custom">
+    <nav class="flex items-center justify-between h-16 md:h-20">
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-primary-500 to-primary-700 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-glow-green transition-shadow">
+          <svg class="w-6 h-6 md:w-7 md:h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+          </svg>
+        </div>
+        <div class="hidden sm:block">
+          <span class="block text-lg md:text-xl font-display font-bold text-dark-900">
+            Pôle Énergie
+          </span>
+          <span class="block text-xs md:text-sm text-primary-600 font-medium -mt-1">
+            & Autonomie
+          </span>
+        </div>
+      </a>
+      
+      <!-- Navigation Desktop -->
+      <div class="hidden lg:flex items-center gap-1">
+        {navLinks.map((link) => (
+          <a
+            href={link.href}
+            class:list={[
+              'px-4 py-2 rounded-lg text-sm font-medium transition-colors',
+              currentPath === link.href
+                ? 'bg-primary-50 text-primary-700'
+                : 'text-dark-600 hover:text-primary-600 hover:bg-primary-50/50',
+            ]}
+          >
+            {link.label}
+          </a>
+        ))}
+      </div>
+      
+      <!-- CTA Desktop -->
+      <div class="hidden md:flex items-center gap-4">
+        <a href="tel:+33XXXXXXXXX" class="text-sm font-medium text-dark-600 hover:text-primary-600 transition-colors">
+          <span class="hidden lg:inline">📞 </span>Nous appeler
+        </a>
+        <a href="#simulateur" class="btn-primary text-sm">
+          <svg class="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+          </svg>
+          Simuler mes économies
+        </a>
+      </div>
+      
+      <!-- Menu Mobile Toggle -->
+      <button 
+        id="mobile-menu-toggle"
+        class="lg:hidden p-2 rounded-lg text-dark-600 hover:bg-dark-100 transition-colors"
+        aria-label="Ouvrir le menu"
+        aria-expanded="false"
+      >
+        <svg class="w-6 h-6 menu-open" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <svg class="w-6 h-6 menu-close hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </nav>
+  </div>
+  
+  <!-- Menu Mobile -->
+  <div id="mobile-menu" class="lg:hidden hidden border-t border-dark-100 bg-white">
+    <div class="container-custom py-4 space-y-2">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class:list={[
+            'block px-4 py-3 rounded-xl text-base font-medium transition-colors',
+            currentPath === link.href
+              ? 'bg-primary-50 text-primary-700'
+              : 'text-dark-600 hover:bg-dark-50',
+          ]}
+        >
+          {link.label}
+        </a>
+      ))}
+      <div class="pt-4 border-t border-dark-100 space-y-3">
+        <a href="tel:+33XXXXXXXXX" class="block px-4 py-3 text-center text-dark-600 font-medium">
+          📞 Nous appeler
+        </a>
+        <a href="#simulateur" class="btn-primary w-full justify-center">
+          Simuler mes économies
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  const toggle = document.getElementById('mobile-menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  const menuOpen = toggle?.querySelector('.menu-open');
+  const menuClose = toggle?.querySelector('.menu-close');
+
+  toggle?.addEventListener('click', () => {
+    const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+    
+    toggle.setAttribute('aria-expanded', (!isExpanded).toString());
+    menu?.classList.toggle('hidden');
+    menuOpen?.classList.toggle('hidden');
+    menuClose?.classList.toggle('hidden');
+  });
+
+  // Fermer le menu mobile lors d'un clic sur un lien
+  menu?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      menu.classList.add('hidden');
+      toggle?.setAttribute('aria-expanded', 'false');
+      menuOpen?.classList.remove('hidden');
+      menuClose?.classList.add('hidden');
+    });
+  });
+</script>

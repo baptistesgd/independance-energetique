@@ -1,0 +1,146 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const allPosts = await getCollection('blog');
+const sortedPosts = allPosts.sort((a, b) => 
+  new Date(b.data.publishedDate).getTime() - new Date(a.data.publishedDate).getTime()
+);
+
+const categories = [
+  { id: 'all', label: 'Tous les articles' },
+  { id: 'solaire', label: 'Solaire' },
+  { id: 'stockage', label: 'Stockage' },
+  { id: 'mobilite-electrique', label: 'Mobilité électrique' },
+  { id: 'aides-financieres', label: 'Aides financières' },
+  { id: 'conseils', label: 'Conseils' },
+];
+
+const categoryColors: Record<string, string> = {
+  solaire: 'bg-solar-100 text-solar-800',
+  stockage: 'bg-primary-100 text-primary-800',
+  'mobilite-electrique': 'bg-electric-100 text-electric-800',
+  eolien: 'bg-teal-100 text-teal-800',
+  'aides-financieres': 'bg-purple-100 text-purple-800',
+  conseils: 'bg-dark-100 text-dark-800',
+};
+---
+
+<Layout
+  title="Blog - Guides & Conseils Énergie"
+  description="Guides experts sur l'autoconsommation solaire, les batteries de stockage, les bornes de recharge et les aides financières. Conseils pratiques pour votre autonomie énergétique."
+  keywords={['guide solaire', 'autoconsommation', 'batterie stockage', 'borne recharge VE', 'aides photovoltaïque', 'économies électricité']}
+>
+  <section class="section-alt">
+    <div class="container-custom">
+      <!-- Header -->
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="badge-green mb-4">📚 Ressources</span>
+        <h1 class="mb-4">
+          Blog & <span class="text-gradient">Guides Experts</span>
+        </h1>
+        <p class="text-lg text-dark-500">
+          Pas de blabla marketing, juste des informations concrètes et vérifiées 
+          pour vous aider à prendre les bonnes décisions pour votre projet énergétique.
+        </p>
+      </div>
+      
+      <!-- Catégories -->
+      <div class="flex flex-wrap justify-center gap-2 mb-12">
+        {categories.map((cat) => (
+          <a 
+            href={cat.id === 'all' ? '/blog' : `/blog?category=${cat.id}`}
+            class="px-4 py-2 rounded-full text-sm font-medium transition-colors bg-white text-dark-600 hover:bg-primary-50 hover:text-primary-700 shadow-sm"
+          >
+            {cat.label}
+          </a>
+        ))}
+      </div>
+      
+      <!-- Articles Grid -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
+        {sortedPosts.map((post) => (
+          <article class="card-hover group">
+            <!-- Image placeholder -->
+            <div class="aspect-video bg-gradient-to-br from-primary-100 to-solar-100 rounded-xl mb-6 overflow-hidden">
+              <div class="w-full h-full flex items-center justify-center">
+                <svg class="w-16 h-16 text-primary-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
+                </svg>
+              </div>
+            </div>
+            
+            <!-- Meta -->
+            <div class="flex items-center gap-3 mb-3">
+              <span class={`badge ${categoryColors[post.data.category] || 'bg-dark-100 text-dark-800'}`}>
+                {post.data.category.replace('-', ' ')}
+              </span>
+              <span class="text-sm text-dark-400">
+                {post.data.readingTime} min de lecture
+              </span>
+            </div>
+            
+            <!-- Title -->
+            <h2 class="text-xl font-bold text-dark-900 mb-3 group-hover:text-primary-600 transition-colors">
+              <a href={`/blog/${post.slug}`}>
+                {post.data.title}
+              </a>
+            </h2>
+            
+            <!-- Description -->
+            <p class="text-dark-600 mb-4 line-clamp-3">
+              {post.data.description}
+            </p>
+            
+            <!-- Footer -->
+            <div class="flex items-center justify-between pt-4 border-t border-dark-100">
+              <div class="flex items-center gap-2">
+                <div class="w-8 h-8 rounded-full bg-primary-100 flex items-center justify-center">
+                  <span class="text-sm font-bold text-primary-600">
+                    {post.data.author.name.charAt(0)}
+                  </span>
+                </div>
+                <span class="text-sm text-dark-500">{post.data.author.name}</span>
+              </div>
+              <time class="text-sm text-dark-400" datetime={post.data.publishedDate}>
+                {new Date(post.data.publishedDate).toLocaleDateString('fr-FR', {
+                  day: 'numeric',
+                  month: 'long',
+                  year: 'numeric'
+                })}
+              </time>
+            </div>
+            
+            <!-- Link overlay -->
+            <a href={`/blog/${post.slug}`} class="absolute inset-0">
+              <span class="sr-only">Lire l'article : {post.data.title}</span>
+            </a>
+          </article>
+        ))}
+      </div>
+      
+      <!-- CTA -->
+      <div class="text-center mt-16">
+        <p class="text-dark-500 mb-4">
+          Une question spécifique sur votre projet ?
+        </p>
+        <a href="/#simulateur" class="btn-primary">
+          Obtenir une réponse personnalisée
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  article {
+    position: relative;
+  }
+</style>
