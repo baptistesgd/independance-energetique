@@ -16,7 +16,7 @@ export interface Props {
   author?: string;
   keywords?: string[];
   noindex?: boolean;
-  schema?: object;
+  schema?: Record<string, unknown>;
 }
 
 const {
@@ -38,7 +38,7 @@ const canonicalUrl = canonical || new URL(Astro.url.pathname, SITE_CONFIG.url).t
 const ogImageUrl = ogImage.startsWith('http') ? ogImage : new URL(ogImage, SITE_CONFIG.url).toString();
 
 // Schema par défaut (LocalBusiness) + schema custom si fourni
-const schemas = [generateLocalBusinessSchema()];
+const schemas: Record<string, unknown>[] = [generateLocalBusinessSchema()];
 if (schema) {
   schemas.push(schema);
 }
@@ -92,7 +92,7 @@ if (schema) {
     
     <!-- JSON-LD Structured Data -->
     {schemas.map((s) => (
-      <script type="application/ld+json" set:html={JSON.stringify(s)} />
+      <script is:inline type="application/ld+json" set:html={JSON.stringify(s)} />
     ))}
     
     <!-- Preload critical resources -->
@@ -145,7 +145,7 @@ if (schema) {
 
       // Smooth scroll pour ancres internes
       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener('click', function (e) {
+        anchor.addEventListener('click', function (this: HTMLAnchorElement, e: Event) {
           e.preventDefault();
           const targetId = this.getAttribute('href');
           if (targetId && targetId !== '#') {

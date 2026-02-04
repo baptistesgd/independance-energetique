@@ -63,7 +63,7 @@ export function generateArticleSchema(article: {
     name: string;
     url?: string;
   };
-}) {
+}): Record<string, unknown> {
   return {
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -92,7 +92,7 @@ export function generateArticleSchema(article: {
   };
 }
 
-export function generateLocalBusinessSchema() {
+export function generateLocalBusinessSchema(): Record<string, unknown> {
   return {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
@@ -122,7 +122,7 @@ export function generateLocalBusinessSchema() {
   };
 }
 
-export function generateFAQSchema(faqs: { question: string; answer: string }[]) {
+export function generateFAQSchema(faqs: { question: string; answer: string }[]): Record<string, unknown> {
   return {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -137,7 +137,7 @@ export function generateFAQSchema(faqs: { question: string; answer: string }[]) 
   };
 }
 
-export function generateBreadcrumbSchema(items: { name: string; url: string }[]) {
+export function generateBreadcrumbSchema(items: { name: string; url: string }[]): Record<string, unknown> {
   return {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
