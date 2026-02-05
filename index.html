@@ -31,6 +31,27 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/responsive.css">
     
+    <style>
+        /* Effet hover sur les cartes solutions */
+        [data-animate="fade-up"]:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0,102,255,0.15) !important;
+        }
+        
+        /* Animation du bouton au hover */
+        [data-animate="fade-up"] a[href*="/produits/"]:hover {
+            background: #0052CC !important;
+            gap: 0.75rem;
+        }
+        
+        /* Responsive mobile */
+        @media (max-width: 768px) {
+            [data-animate="fade-up"] {
+                min-height: auto !important;
+            }
+        }
+    </style>
+    
     <!-- JSON-LD Schema -->
     <script type="application/ld+json">
     {
@@ -201,29 +222,24 @@
                     </p>
                 </div>
                 
-                <div class="solutions-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; max-width: 900px; margin: 0 auto;">
-                    <article class="solution-card" style="aspect-ratio: 1; display: flex; flex-direction: column; justify-content: space-between;" style="aspect-ratio: 1; display: flex; flex-direction: column; justify-content: space-between; padding: 2.5rem;" data-animate="fade-up">
-                        <div class="solution-icon-wrapper">
-                            <div class="solution-icon">☀️</div>
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2.5rem; max-width: 1100px; margin: 0 auto;">
+                    <!-- Panneaux Solaires -->
+                    <article style="background: white; border-radius: 1.5rem; padding: 2.5rem; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: all 0.3s; display: flex; flex-direction: column; min-height: 500px;" data-animate="fade-up">
+                        <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%); border-radius: 1.25rem; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; font-size: 2.5rem;">
+                            ☀️
                         </div>
-                        <h3 class="solution-title">Panneaux Solaires</h3>
-                        <p class="solution-description">
+                        <h3 style="font-size: 1.5rem; font-weight: 700; color: #1A1F2E; margin-bottom: 1rem;">Panneaux Solaires</h3>
+                        <p style="color: #6B7280; line-height: 1.7; margin-bottom: 1.5rem; flex-grow: 1;">
                             Photovoltaïque en autoconsommation. Production moyenne : 
                             <strong>1 000 kWh/kWc/an</strong> dans le sud, 900 dans le nord. 
                             Garantie 25 ans sur 80% de la puissance.
                         </p>
-                        <ul class="solution-features">
+                        <ul style="list-style: none; padding: 0; margin: 0 0 1.5rem 0; color: #6B7280; font-size: 0.9375rem; line-height: 2;">
                             <li>✓ Prime à l'autoconsommation : 380€/kWc</li>
                             <li>✓ Obligation d'achat du surplus à 0,13€/kWh</li>
                             <li>✓ TVA réduite 10% (≤3 kWc : 5,5%)</li>
                         </ul>
-                        <a href="/produits/panneaux-solaires" class="solution-link" style="display: inline-flex; align-items: center; gap: 0.5rem; color: #0066FF; font-weight: 600; font-size: 0.9375rem; text-decoration: none; margin-top: 1rem; transition: gap 0.2s;">
-                            En savoir plus
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                            </svg>
-                        </a>
-                        <a href="/produits/panneaux-solaires" class="solution-link">
+                        <a href="/produits/panneaux-solaires" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 1rem 1.5rem; background: #0066FF; color: white; font-weight: 600; border-radius: 9999px; text-decoration: none; transition: all 0.2s; justify-content: center;">
                             En savoir plus
                             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                                 <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -231,27 +247,22 @@
                         </a>
                     </article>
                     
-                    <article class="solution-card" style="aspect-ratio: 1; display: flex; flex-direction: column; justify-content: space-between;" style="aspect-ratio: 1; display: flex; flex-direction: column; justify-content: space-between; padding: 2.5rem;" data-animate="fade-up" data-delay="100">
-                        <div class="solution-icon-wrapper">
-                            <div class="solution-icon">🔋</div>
+                    <!-- Batteries Domestiques -->
+                    <article style="background: white; border-radius: 1.5rem; padding: 2.5rem; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: all 0.3s; display: flex; flex-direction: column; min-height: 500px;" data-animate="fade-up" data-delay="100">
+                        <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #F0FDF4 0%, #DCFCE7 100%); border-radius: 1.25rem; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; font-size: 2.5rem;">
+                            🔋
                         </div>
-                        <h3 class="solution-title">Batteries Domestiques</h3>
-                        <p class="solution-description">
+                        <h3 style="font-size: 1.5rem; font-weight: 700; color: #1A1F2E; margin-bottom: 1rem;">Batteries Domestiques</h3>
+                        <p style="color: #6B7280; line-height: 1.7; margin-bottom: 1.5rem; flex-grow: 1;">
                             Stockage lithium-ion de 5 à 20 kWh. Autonomie de <strong>1 à 3 jours</strong> 
                             selon dimensionnement. Compatible injection réseau et secours d'urgence.
                         </p>
-                        <ul class="solution-features">
+                        <ul style="list-style: none; padding: 0; margin: 0 0 1.5rem 0; color: #6B7280; font-size: 0.9375rem; line-height: 2;">
                             <li>✓ 90% de rendement charge/décharge</li>
                             <li>✓ 6 000 à 10 000 cycles garantis</li>
                             <li>✓ Éligible crédit d'impôt 25%</li>
                         </ul>
-                        <a href="/produits/batteries-domestiques" class="solution-link" style="display: inline-flex; align-items: center; gap: 0.5rem; color: #0066FF; font-weight: 600; font-size: 0.9375rem; text-decoration: none; margin-top: 1rem; transition: gap 0.2s;">
-                            En savoir plus
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                            </svg>
-                        </a>
-                        <a href="/produits/batteries-domestiques" class="solution-link">
+                        <a href="/produits/batteries-domestiques" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 1rem 1.5rem; background: #0066FF; color: white; font-weight: 600; border-radius: 9999px; text-decoration: none; transition: all 0.2s; justify-content: center;">
                             En savoir plus
                             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                                 <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -259,27 +270,22 @@
                         </a>
                     </article>
                     
-                    <article class="solution-card" style="aspect-ratio: 1; display: flex; flex-direction: column; justify-content: space-between;" style="aspect-ratio: 1; display: flex; flex-direction: column; justify-content: space-between; padding: 2.5rem;" data-animate="fade-up" data-delay="200">
-                        <div class="solution-icon-wrapper">
-                            <div class="solution-icon">🚗</div>
+                    <!-- Bornes de Recharge -->
+                    <article style="background: white; border-radius: 1.5rem; padding: 2.5rem; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: all 0.3s; display: flex; flex-direction: column; min-height: 500px;" data-animate="fade-up" data-delay="200">
+                        <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%); border-radius: 1.25rem; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; font-size: 2.5rem;">
+                            🚗
                         </div>
-                        <h3 class="solution-title">Bornes de Recharge</h3>
-                        <p class="solution-description">
+                        <h3 style="font-size: 1.5rem; font-weight: 700; color: #1A1F2E; margin-bottom: 1rem;">Bornes de Recharge</h3>
+                        <p style="color: #6B7280; line-height: 1.7; margin-bottom: 1.5rem; flex-grow: 1;">
                             Wallbox 7,4 kW (32A) ou 22 kW (triphasé). Rechargez votre véhicule 
                             électrique <strong>avec votre propre production</strong> solaire.
                         </p>
-                        <ul class="solution-features">
+                        <ul style="list-style: none; padding: 0; margin: 0 0 1.5rem 0; color: #6B7280; font-size: 0.9375rem; line-height: 2;">
                             <li>✓ Programme Advenir : 500€ de prime</li>
                             <li>✓ Pilotage intelligent (heures creuses)</li>
                             <li>✓ Compatible tous véhicules électriques</li>
                         </ul>
-                        <a href="/produits/bornes-recharge" class="solution-link" style="display: inline-flex; align-items: center; gap: 0.5rem; color: #0066FF; font-weight: 600; font-size: 0.9375rem; text-decoration: none; margin-top: 1rem; transition: gap 0.2s;">
-                            En savoir plus
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                            </svg>
-                        </a>
-                        <a href="/produits/bornes-recharge" class="solution-link">
+                        <a href="/produits/bornes-recharge" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 1rem 1.5rem; background: #0066FF; color: white; font-weight: 600; border-radius: 9999px; text-decoration: none; transition: all 0.2s; justify-content: center;">
                             En savoir plus
                             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                                 <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -287,27 +293,22 @@
                         </a>
                     </article>
                     
-                    <article class="solution-card" style="aspect-ratio: 1; display: flex; flex-direction: column; justify-content: space-between;" style="aspect-ratio: 1; display: flex; flex-direction: column; justify-content: space-between; padding: 2.5rem;" data-animate="fade-up" data-delay="300">
-                        <div class="solution-icon-wrapper">
-                            <div class="solution-icon">🌀</div>
+                    <!-- Éolien Domestique -->
+                    <article style="background: white; border-radius: 1.5rem; padding: 2.5rem; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: all 0.3s; display: flex; flex-direction: column; min-height: 500px;" data-animate="fade-up" data-delay="300">
+                        <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #EDE9FE 0%, #DDD6FE 100%); border-radius: 1.25rem; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; font-size: 2.5rem;">
+                            🌀
                         </div>
-                        <h3 class="solution-title">Éolien Domestique</h3>
-                        <p class="solution-description">
+                        <h3 style="font-size: 1.5rem; font-weight: 700; color: #1A1F2E; margin-bottom: 1rem;">Éolien Domestique</h3>
+                        <p style="color: #6B7280; line-height: 1.7; margin-bottom: 1.5rem; flex-grow: 1;">
                             Petit éolien 5-10 kW. Production complémentaire au solaire, 
                             surtout <strong>l'hiver et la nuit</strong>. Nécessite étude de vent.
                         </p>
-                        <ul class="solution-features">
+                        <ul style="list-style: none; padding: 0; margin: 0 0 1.5rem 0; color: #6B7280; font-size: 0.9375rem; line-height: 2;">
                             <li>✓ Production 5 000-15 000 kWh/an</li>
                             <li>✓ Complément idéal au photovoltaïque</li>
                             <li>✓ Permis de construire selon hauteur</li>
                         </ul>
-                        <a href="/produits/eolien-domestique" class="solution-link" style="display: inline-flex; align-items: center; gap: 0.5rem; color: #0066FF; font-weight: 600; font-size: 0.9375rem; text-decoration: none; margin-top: 1rem; transition: gap 0.2s;">
-                            En savoir plus
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                            </svg>
-                        </a>
-                        <a href="/produits/eolien-domestique" class="solution-link">
+                        <a href="/produits/eolien-domestique" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 1rem 1.5rem; background: #0066FF; color: white; font-weight: 600; border-radius: 9999px; text-decoration: none; transition: all 0.2s; justify-content: center;">
                             En savoir plus
                             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                                 <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
