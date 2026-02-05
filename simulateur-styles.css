@@ -1,0 +1,154 @@
+/* Reset & Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.6;
+    color: #1A1F2E;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Input styles */
+input[type="text"]:focus {
+    outline: none;
+    border-color: #0066FF !important;
+    box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.1);
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 28px;
+    height: 28px;
+    background: white;
+    border: 4px solid #0066FF;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+    transition: all 0.2s;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 16px rgba(0,102,255,0.3);
+}
+
+input[type="range"]::-moz-range-thumb {
+    width: 28px;
+    height: 28px;
+    background: white;
+    border: 4px solid #0066FF;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+    transition: all 0.2s;
+}
+
+/* Radio cards */
+.radio-card input[type="radio"]:checked + div {
+    border-color: #0066FF !important;
+    background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%);
+}
+
+.radio-card:hover div {
+    border-color: #0066FF;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Equipment checkboxes */
+.equipment-check:checked {
+    accent-color: #0066FF;
+}
+
+label:has(.equipment-check:checked) {
+    background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%) !important;
+    border: 2px solid #0066FF;
+}
+
+label:has(.equipment-check):hover {
+    background: #F3F4F6 !important;
+}
+
+/* Config options */
+.config-option:checked ~ div {
+    color: #0066FF;
+}
+
+#battery-card:has(#option-battery:checked) {
+    border-color: #00D084 !important;
+    background: linear-gradient(135deg, #F0FDF4 0%, #DCFCE7 100%) !important;
+}
+
+#wind-card:has(#option-wind:checked) {
+    border-color: #3B82F6 !important;
+    background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%) !important;
+}
+
+#charger-card:has(#option-charger:checked) {
+    border-color: #FFA500 !important;
+    background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%) !important;
+}
+
+/* Button hover effects */
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* Step indicators active state */
+.step-indicator.active {
+    background: #0066FF !important;
+    color: white !important;
+}
+
+.step-indicator.completed {
+    background: #00D084 !important;
+    color: white !important;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.step-content {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+    #step-3 > div {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+@media (max-width: 640px) {
+    .radio-card {
+        grid-template-columns: 1fr !important;
+    }
+    
+    main {
+        padding: 2rem 1rem !important;
+    }
+    
+    #step-1, #step-2, #step-3 > div > div {
+        padding: 2rem !important;
+    }
+}
