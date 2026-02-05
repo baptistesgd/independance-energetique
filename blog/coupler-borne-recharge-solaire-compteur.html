@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coupler borne de recharge et solaire sans surcharger son compteur | Pôle Énergie & Autonomie</title>
+    <meta name="description" content="Guide technique complet pour installer une borne VE avec des panneaux solaires sans faire disjoncter votre installation.">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%2316a34a'/><circle cx='50' cy='50' r='20' fill='none' stroke='white' stroke-width='4'/></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="../" class="logo">
+                    <div class="logo-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="5"/>
+                            <line x1="12" y1="1" x2="12" y2="3"/>
+                            <line x1="12" y1="21" x2="12" y2="23"/>
+                        </svg>
+                    </div>
+                    <div class="logo-text">
+                        <span class="logo-title">Pôle Énergie</span>
+                        <span class="logo-subtitle">& Autonomie</span>
+                    </div>
+                </a>
+                <a href="../#simulateur" class="btn btn-primary">Simuler mes économies</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <article class="article">
+            <div class="container">
+                <div class="article-header">
+                    <nav class="breadcrumb">
+                        <a href="../">Accueil</a> / <a href="./">Blog</a> / <span>Borne + Solaire</span>
+                    </nav>
+                    <span class="section-badge badge-electric">Mobilité électrique</span>
+                    <h1>Comment coupler borne de recharge et solaire sans surcharger son compteur</h1>
+                    <p class="article-excerpt">Guide technique complet pour installer une borne VE avec des panneaux solaires sans faire disjoncter votre installation. Dimensionnement, pilotage intelligent et erreurs à éviter.</p>
+                    <div class="article-meta">
+                        <div class="author-info">
+                            <div class="author-avatar author-avatar-blue">SD</div>
+                            <div>
+                                <strong>Sophie D.</strong>
+                                <span>Experte Mobilité Électrique & Smart Grid • 15 ans d'expérience</span>
+                            </div>
+                        </div>
+                        <div class="article-date">
+                            <span>Publié le 8 janvier 2026</span>
+                            <span>• 14 min de lecture</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="article-content">
+                    <h2>Le piège du "tout électrique" mal préparé</h2>
+                    <p>J'accompagne des particuliers dans leurs projets de mobilité électrique depuis 15 ans, et je vois régulièrement la même erreur : des propriétaires enthousiastes qui installent panneaux solaires ET borne de recharge sans penser à l'interaction entre les deux. Résultat ? Le compteur qui disjoncte au premier soir d'hiver.</p>
+                    <p>Ce guide va vous expliquer <strong>comment dimensionner et piloter correctement</strong> votre installation pour que borne de recharge et panneaux solaires fonctionnent en harmonie.</p>
+
+                    <h2>Comprendre les bases : puissance vs énergie</h2>
+                    <h3>La puissance (kW)</h3>
+                    <p>C'est la "vitesse" à laquelle l'électricité circule à un instant T. Votre compteur a une puissance souscrite (3 kVA, 6 kVA, 9 kVA...) qui représente le maximum que vous pouvez tirer simultanément. Si vous dépassez, ça disjoncte.</p>
+
+                    <h3>L'énergie (kWh)</h3>
+                    <p>C'est la quantité totale d'électricité consommée sur une période. C'est ce que vous payez sur votre facture.</p>
+
+                    <h2>État des lieux : votre compteur peut-il encaisser ?</h2>
+                    <h3>Les puissances en jeu</h3>
+                    <table class="article-table">
+                        <thead>
+                            <tr><th>Équipement</th><th>Puissance typique</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Four électrique</td><td>2 à 3 kW</td></tr>
+                            <tr><td>Plaques induction</td><td>3 à 7 kW</td></tr>
+                            <tr><td>Chauffe-eau</td><td>1,5 à 2 kW</td></tr>
+                            <tr><td>Climatisation/PAC</td><td>2 à 5 kW</td></tr>
+                            <tr><td>Borne 7,4 kW (monophasé)</td><td>7,4 kW</td></tr>
+                            <tr><td>Borne 11 kW (triphasé)</td><td>11 kW</td></tr>
+                        </tbody>
+                    </table>
+                    <p>Si vous avez un abonnement 9 kVA et que vous faites tourner le four (3 kW) pendant que la borne charge à 7,4 kW, vous êtes déjà à 10,4 kW : <strong>ça disjoncte</strong>.</p>
+
+                    <h2>Les 3 solutions pour ne pas tout faire sauter</h2>
+
+                    <h3>Solution 1 : Augmenter son abonnement</h3>
+                    <p>Vous pouvez demander à Enedis de passer en 12 kVA, 15 kVA ou plus. Mais attention :</p>
+                    <ul>
+                        <li>Coût de l'abonnement : +30 à +50% sur la partie fixe</li>
+                        <li>Peut nécessiter un passage en triphasé (travaux ~500-1500€)</li>
+                        <li>Vous ne profitez pas de votre production solaire</li>
+                    </ul>
+
+                    <h3>Solution 2 : Le délestage intelligent (recommandé)</h3>
+                    <p>Un boîtier mesure en temps réel la puissance consommée et <strong>ajuste automatiquement la puissance de charge</strong> pour ne jamais dépasser la puissance souscrite.</p>
+                    <p><strong>Bornes avec délestage intégré :</strong> Wallbox Pulsar Plus, Easee Home, Schneider EVlink, Hager Witty.</p>
+                    <p>Coût supplémentaire : 150 à 400€ pour le kit de mesure.</p>
+
+                    <h3>Solution 3 : Le pilotage solaire (solution optimale)</h3>
+                    <p>Le système <strong>pilote activement la charge</strong> pour maximiser l'utilisation de votre production photovoltaïque.</p>
+                    <p>Fonctionnement :</p>
+                    <ol>
+                        <li>Vos panneaux produisent 5 kW</li>
+                        <li>Votre maison consomme 2 kW</li>
+                        <li>Surplus disponible : 3 kW</li>
+                        <li>La borne se déclenche et charge à 3 kW</li>
+                    </ol>
+                    <p><strong>Solutions compatibles :</strong> Fronius Wattpilot, Wallbox + Solar Manager, MyEnergi Zappi, SolarEdge.</p>
+
+                    <h2>Résultat économique</h2>
+                    <p>Avec le pilotage solaire et une installation 6 kWc :</p>
+                    <ul>
+                        <li><strong>Sans pilotage solaire :</strong> ~638€/an de recharge réseau</li>
+                        <li><strong>Avec pilotage solaire :</strong> ~51€/an</li>
+                        <li><strong>Économie : 587€/an</strong></li>
+                    </ul>
+                    <p>L'investissement supplémentaire de 1 000€ est rentabilisé en moins de 2 ans.</p>
+
+                    <h2>Les erreurs courantes à éviter</h2>
+                    <ul>
+                        <li><strong>Installer une borne 22 kW "au cas où"</strong> : la plupart des VE chargent à 11 kW max en AC</li>
+                        <li><strong>Oublier le délestage</strong> : cause n°1 des disjonctions</li>
+                        <li><strong>Charger systématiquement à 100%</strong> : maintenez entre 20% et 80%</li>
+                        <li><strong>Négliger l'orientation de la recharge</strong> : branchez le matin avant de partir</li>
+                    </ul>
+
+                    <h2>Conclusion : ne subissez pas, pilotez</h2>
+                    <p>Bien intégrée à votre écosystème solaire, la borne devient un <strong>outil d'optimisation</strong> qui valorise chaque kWh produit par vos panneaux.</p>
+                    <p>Le surcoût d'une borne avec pilotage intelligent (300 à 500€ de plus) est généralement rentabilisé en 6 à 12 mois.</p>
+
+                    <div class="article-cta">
+                        <h3>Prêt à concrétiser votre projet ?</h3>
+                        <p>Obtenez une simulation personnalisée gratuite en 30 secondes</p>
+                        <a href="../#simulateur" class="btn btn-primary btn-lg">Calculer mes économies</a>
+                    </div>
+
+                    <div class="article-sources">
+                        <p><em>Sources : ecologie.gouv.fr, enedis.fr, avere-france.org. Ces recommandations sont basées sur mon expérience de terrain et les bonnes pratiques du secteur.</em></p>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>© 2026 Pôle Énergie & Autonomie. Tous droits réservés.</p>
+                <div class="footer-legal">
+                    <a href="../mentions-legales.html">Mentions Légales</a>
+                    <a href="../politique-confidentialite.html">Politique de Confidentialité</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <style>
+        .article { padding: 2rem 0 4rem; }
+        .article-header { max-width: 800px; margin: 0 auto 3rem; }
+        .breadcrumb { font-size: 0.9rem; color: var(--dark-500); margin-bottom: 1rem; }
+        .breadcrumb a { color: var(--dark-500); }
+        .breadcrumb a:hover { color: var(--primary-600); }
+        .article-header h1 { margin: 1rem 0; font-size: clamp(1.75rem, 4vw, 2.5rem); }
+        .article-excerpt { font-size: 1.2rem; color: var(--dark-600); margin-bottom: 1.5rem; }
+        .article-meta { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; padding-top: 1.5rem; border-top: 1px solid var(--dark-200); }
+        .author-info { display: flex; align-items: center; gap: 1rem; }
+        .author-info strong { display: block; color: var(--dark-900); }
+        .author-info span { font-size: 0.85rem; color: var(--dark-500); }
+        .author-avatar-blue { background: linear-gradient(135deg, var(--electric-100), var(--electric-200)) !important; color: var(--electric-600) !important; }
+        .article-date { font-size: 0.9rem; color: var(--dark-500); }
+        .article-content { max-width: 800px; margin: 0 auto; }
+        .article-content h2 { margin: 2.5rem 0 1rem; font-size: 1.75rem; }
+        .article-content h3 { margin: 2rem 0 0.75rem; font-size: 1.25rem; }
+        .article-content p { color: var(--dark-600); line-height: 1.8; margin-bottom: 1.25rem; }
+        .article-content ul, .article-content ol { padding-left: 1.5rem; margin-bottom: 1.25rem; }
+        .article-content li { color: var(--dark-600); line-height: 1.7; margin-bottom: 0.5rem; }
+        .article-content strong { color: var(--dark-800); }
+        .article-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; }
+        .article-table th, .article-table td { border: 1px solid var(--dark-200); padding: 0.75rem; text-align: left; }
+        .article-table th { background: var(--dark-100); font-weight: 600; }
+        .article-table td { color: var(--dark-600); }
+        .article-cta { background: linear-gradient(135deg, var(--dark-900), var(--dark-800)); padding: 2rem; border-radius: 16px; text-align: center; margin: 3rem 0; }
+        .article-cta h3 { color: var(--white); margin-bottom: 0.5rem; }
+        .article-cta p { color: var(--dark-300); margin-bottom: 1.5rem; }
+        .article-sources { padding-top: 2rem; border-top: 1px solid var(--dark-200); font-size: 0.9rem; color: var(--dark-500); }
+    </style>
+</body>
+</html>
