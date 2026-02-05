@@ -1,149 +1,46 @@
 # Independance-energetique.fr
 
 Site web professionnel pour solutions d'autoconsommation énergétique.
+Police: **Inter** (moderne et simple)
 
-## 🚀 Déploiement Rapide
+## 🚀 Déploiement sur Vercel
 
-### Option 1 : Vercel (Recommandé)
 ```bash
-# 1. Installer Vercel CLI
-npm i -g vercel
-
-# 2. Déployer
-vercel
-```
-
-### Option 2 : GitHub Pages
-```bash
-# 1. Créer un repo GitHub
-git init
-git add .
-git commit -m "Initial commit"
-git remote add origin https://github.com/USERNAME/independance-energetique.git
-git push -u origin main
-
-# 2. Activer GitHub Pages dans Settings > Pages
-```
-
-### Option 3 : Netlify
-```bash
-# 1. Drop le dossier sur https://app.netlify.com/drop
-```
-
-## 📁 Structure
-
-```
-/
-├── index.html              # Page d'accueil
-├── simulateur.html         # Simulateur ROI
-├── contact.html            # Contact
-├── a-propos.html          # Équipe
-├── mentions-legales.html   # Mentions légales
-├── politique-confidentialite.html
-├── css/
-│   ├── reset.css
-│   ├── styles.css
-│   └── responsive.css
-├── js/
-│   ├── main.js
-│   ├── navigation.js
-│   ├── simulateur.js
-│   └── forms.js
-├── blog/
-│   └── *.html
-└── produits/
-    └── *.html
+# Via GitHub
+1. Push ce dossier sur votre repo GitHub
+2. Aller sur vercel.com
+3. "New Project" > Importer depuis GitHub
+4. Déployer !
 ```
 
 ## ⚙️ Configuration Make.com
 
-### Webhook URL
-Dans `js/simulateur.js` ligne 332, remplacer :
+Dans `js/simulateur.js` ligne 332 :
 ```javascript
 const WEBHOOK_URL = 'https://hook.eu1.make.com/YOUR_WEBHOOK_ID';
 ```
 
-### Structure des données envoyées
-```json
-{
-  "nom": "string",
-  "email": "string",
-  "telephone": "string",
-  "consommation": "number",
-  "surfaceToit": "number",
-  "region": "string",
-  "avecBatterie": "boolean",
-  "economiesEstimees": "number",
-  "roiEstime": "number",
-  "consentement": "boolean",
-  "timestamp": "ISO 8601"
-}
-```
+## 📁 Structure
 
-## 🎨 Personnalisation
+- `index.html` - Page d'accueil
+- `simulateur.html` - Calculateur ROI
+- `blog/*.html` - Articles (2 articles de 1000+ mots)
+- `produits/*.html` - Pages produits (4 pages)
+- `css/` - Styles (Inter font)
+- `js/` - Scripts (simulateur, navigation, forms)
 
-### Couleurs (dans `css/styles.css`)
-```css
-:root {
-    --color-primary: #0066FF;
-    --color-secondary: #00D084;
-    --color-accent: #FFB800;
-}
-```
+## ✅ Corrections apportées
 
-### Polices
-- Display : Syne (Google Fonts)
-- Body : Space Mono (Google Fonts)
+- ✅ Police changée vers Inter (moderne et simple)
+- ✅ Toutes les pages produits créées (panneaux-solaires, batteries, bornes, eolien)
+- ✅ Tous les articles de blog présents
+- ✅ Plus d'erreurs 404
 
-## 📊 Analytics
+## 📝 Prochaines étapes
 
-Ajouter Google Analytics dans `index.html` :
-```html
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'GA_MEASUREMENT_ID');
-</script>
-```
+1. Remplacer le webhook Make.com
+2. Tester le formulaire
+3. Ajouter vos propres images dans `/assets/images/`
+4. C'est prêt !
 
-## 🔒 RGPD
-
-- Consentement obligatoire pour formulaires
-- Données stockées pour partenaires uniquement
-- Droit d'accès/suppression via contact
-
-## 🐛 Debug
-
-En local, ouvrir la console :
-```javascript
-// Voir l'état du simulateur
-console.log(window.simulatorState);
-
-// Voir les events trackés
-window.trackEvent('Test', 'click', 'Debug');
-```
-
-## 📝 SEO
-
-- Balises meta complètes
-- Schema.org JSON-LD
-- Sitemap.xml à générer
-- robots.txt à configurer
-
-## 🌐 Browser Support
-
-- Chrome/Edge 90+
-- Firefox 88+
-- Safari 14+
-- Mobile browsers
-
-## 📧 Support
-
-contact@independance-energetique.fr
-
-## 📄 License
-
-Propriétaire - Independance-energetique.fr © 2025
+© 2025 Indépendance Énergétique
