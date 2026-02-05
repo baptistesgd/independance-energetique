@@ -91,7 +91,7 @@
                     <li><a href="/#solutions" class="nav-link">Solutions</a></li>
                     <li><a href="/simulateur.html" class="nav-link">Simulateur</a></li>
                     <li><a href="/blog/" class="nav-link">Blog</a></li>
-                    <li><a href="/a-propos.html" class="nav-link">À propos</a></li>
+                    
                     <li><a href="/#simulateur" class="nav-link nav-link-cta">Calculer vos économies</a></li>
                 </ul>
             </div>
@@ -201,8 +201,8 @@
                     </p>
                 </div>
                 
-                <div class="solutions-grid">
-                    <article class="solution-card" data-animate="fade-up">
+                <div class="solutions-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; max-width: 900px; margin: 0 auto;">
+                    <article class="solution-card" style="aspect-ratio: 1; display: flex; flex-direction: column; justify-content: space-between;" style="aspect-ratio: 1; display: flex; flex-direction: column; justify-content: space-between; padding: 2.5rem;" data-animate="fade-up">
                         <div class="solution-icon-wrapper">
                             <div class="solution-icon">☀️</div>
                         </div>
@@ -225,7 +225,7 @@
                         </a>
                     </article>
                     
-                    <article class="solution-card" data-animate="fade-up" data-delay="100">
+                    <article class="solution-card" style="aspect-ratio: 1; display: flex; flex-direction: column; justify-content: space-between;" style="aspect-ratio: 1; display: flex; flex-direction: column; justify-content: space-between; padding: 2.5rem;" data-animate="fade-up" data-delay="100">
                         <div class="solution-icon-wrapper">
                             <div class="solution-icon">🔋</div>
                         </div>
@@ -247,7 +247,7 @@
                         </a>
                     </article>
                     
-                    <article class="solution-card" data-animate="fade-up" data-delay="200">
+                    <article class="solution-card" style="aspect-ratio: 1; display: flex; flex-direction: column; justify-content: space-between;" style="aspect-ratio: 1; display: flex; flex-direction: column; justify-content: space-between; padding: 2.5rem;" data-animate="fade-up" data-delay="200">
                         <div class="solution-icon-wrapper">
                             <div class="solution-icon">🚗</div>
                         </div>
@@ -269,7 +269,7 @@
                         </a>
                     </article>
                     
-                    <article class="solution-card" data-animate="fade-up" data-delay="300">
+                    <article class="solution-card" style="aspect-ratio: 1; display: flex; flex-direction: column; justify-content: space-between;" style="aspect-ratio: 1; display: flex; flex-direction: column; justify-content: space-between; padding: 2.5rem;" data-animate="fade-up" data-delay="300">
                         <div class="solution-icon-wrapper">
                             <div class="solution-icon">🌀</div>
                         </div>
@@ -505,6 +505,99 @@
                 </div>
             </div>
         </section>
+        
+        <!-- FAQ Section -->
+        <section style="padding: 6rem 0; background: white;">
+            <div class="container" style="max-width: 900px;">
+                <div style="text-align: center; margin-bottom: 4rem;">
+                    <span class="section-label">FAQ</span>
+                    <h2 class="section-title">Questions fréquentes</h2>
+                    <p class="section-description">Tout ce que vous devez savoir sur l'autoconsommation solaire</p>
+                </div>
+                
+                <div style="display: grid; gap: 1.5rem;">
+                    <details style="padding: 2rem; background: var(--color-gray-100); border-radius: var(--radius-lg); cursor: pointer;">
+                        <summary style="font-size: 1.125rem; font-weight: 700; color: var(--color-gray-900); list-style: none; display: flex; justify-content: space-between; align-items: center;">
+                            Combien puis-je économiser avec des panneaux solaires ?
+                            <span style="font-size: 1.5rem; color: var(--color-primary);">+</span>
+                        </summary>
+                        <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--color-gray-300); color: var(--color-gray-600); line-height: 1.7;">
+                            <p>Avec une installation photovoltaïque en autoconsommation, vous pouvez réduire votre facture d'électricité de <strong>40% à 70%</strong>. Pour un foyer consommant 6 000 kWh/an, cela représente une économie de <strong>~100€ par mois</strong>, soit 1 200€ par an. Sur 25 ans, le gain net peut atteindre 15 000€ à 25 000€.</p>
+                        </div>
+                    </details>
+                    
+                    <details style="padding: 2rem; background: var(--color-gray-100); border-radius: var(--radius-lg); cursor: pointer;">
+                        <summary style="font-size: 1.125rem; font-weight: 700; color: var(--color-gray-900); list-style: none; display: flex; justify-content: space-between; align-items: center;">
+                            Quel est le coût d'une installation complète ?
+                            <span style="font-size: 1.5rem; color: var(--color-primary);">+</span>
+                        </summary>
+                        <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--color-gray-300); color: var(--color-gray-600); line-height: 1.7;">
+                            <p>Le prix moyen d'une installation de 6 kWc (standard pour un foyer) est de <strong>12 000€ TTC</strong>. Avec les aides d'État (prime à l'autoconsommation de 1 680€ + TVA réduite), le coût net descend à environ <strong>9 500€</strong>. Le temps d'amortissement est de 8 à 12 ans selon votre région.</p>
+                        </div>
+                    </details>
+                    
+                    <details style="padding: 2rem; background: var(--color-gray-100); border-radius: var(--radius-lg); cursor: pointer;">
+                        <summary style="font-size: 1.125rem; font-weight: 700; color: var(--color-gray-900); list-style: none; display: flex; justify-content: space-between; align-items: center;">
+                            Ai-je besoin d'une batterie de stockage ?
+                            <span style="font-size: 1.5rem; color: var(--color-primary);">+</span>
+                        </summary>
+                        <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--color-gray-300); color: var(--color-gray-600); line-height: 1.7;">
+                            <p>Une batterie n'est <strong>pas obligatoire</strong> mais fortement recommandée si vous êtes absent en journée. Sans batterie, votre taux d'autoconsommation sera de 30-40%. Avec batterie, il passe à 70-80%, maximisant vos économies. Une batterie de 10 kWh coûte environ 8 000€ (aides incluses).</p>
+                        </div>
+                    </details>
+                    
+                    <details style="padding: 2rem; background: var(--color-gray-100); border-radius: var(--radius-lg); cursor: pointer;">
+                        <summary style="font-size: 1.125rem; font-weight: 700; color: var(--color-gray-900); list-style: none; display: flex; justify-content: space-between; align-items: center;">
+                            Que devient le surplus d'électricité produite ?
+                            <span style="font-size: 1.5rem; color: var(--color-primary);">+</span>
+                        </summary>
+                        <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--color-gray-300); color: var(--color-gray-600); line-height: 1.7;">
+                            <p>Tout surplus non consommé est <strong>automatiquement revendu à EDF</strong> au tarif garanti de <strong>0,13€/kWh pendant 20 ans</strong> (obligation d'achat). C'est un revenu passif de 200€ à 500€ par an selon votre production excédentaire. Le contrat est garanti par l'État.</p>
+                        </div>
+                    </details>
+                    
+                    <details style="padding: 2rem; background: var(--color-gray-100); border-radius: var(--radius-lg); cursor: pointer;">
+                        <summary style="font-size: 1.125rem; font-weight: 700; color: var(--color-gray-900); list-style: none; display: flex; justify-content: space-between; align-items: center;">
+                            Mon installation fonctionne-t-elle en cas de coupure de courant ?
+                            <span style="font-size: 1.5rem; color: var(--color-primary);">+</span>
+                        </summary>
+                        <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--color-gray-300); color: var(--color-gray-600); line-height: 1.7;">
+                            <p>Oui, si vous avez une <strong>batterie de secours</strong> et un onduleur hybride. Sans batterie, l'installation se coupe automatiquement par sécurité (norme française). Avec batterie, vous restez alimenté pendant 1 à 3 jours selon votre consommation et la capacité de stockage.</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Schema.org FAQ -->
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [{
+            "@type": "Question",
+            "name": "Combien puis-je économiser avec des panneaux solaires ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Avec une installation photovoltaïque en autoconsommation, vous pouvez réduire votre facture d'électricité de 40% à 70%. Pour un foyer consommant 6 000 kWh/an, cela représente une économie de ~100€ par mois, soit 1 200€ par an."
+            }
+          }, {
+            "@type": "Question",
+            "name": "Quel est le coût d'une installation complète ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Le prix moyen d'une installation de 6 kWc est de 12 000€ TTC. Avec les aides d'État, le coût net descend à environ 9 500€."
+            }
+          }, {
+            "@type": "Question",
+            "name": "Ai-je besoin d'une batterie de stockage ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Une batterie n'est pas obligatoire mais fortement recommandée. Sans batterie, votre taux d'autoconsommation sera de 30-40%. Avec batterie, il passe à 70-80%."
+            }
+          }]
+        }
+        </script>
         
         <!-- Final CTA -->
         <section class="final-cta">

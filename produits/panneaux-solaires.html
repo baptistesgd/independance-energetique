@@ -3,18 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panneaux Solaires Photovoltaïques | Indépendance Énergétique</title>
+    <meta name="description" content="Réduisez vos factures d'électricité de 70% avec des panneaux solaires en autoconsommation. Installation clé en main, aides d'État jusqu'à 10 000€. Simulation gratuite en 2 min.">
+    <meta name="keywords" content="panneaux solaires autoconsommation, réduire facture électricité, installation photovoltaïque, panneaux solaires prix, aides panneaux solaires 2025, économies électricité">
+    <title>Panneaux Solaires en Autoconsommation : Réduisez vos Factures de 70% | Prix, Aides & Installation 2025</title>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/responsive.css">
+    
+    <!-- Schema.org pour SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "Installation Panneaux Solaires Photovoltaïques",
+      "description": "Installation complète de panneaux solaires en autoconsommation avec suivi de production et garantie 25 ans",
+      "brand": {
+        "@type": "Brand",
+        "name": "Indépendance Énergétique"
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "EUR",
+        "lowPrice": "8000",
+        "highPrice": "18000",
+        "offerCount": "3"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "127"
+      }
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "Combien coûte une installation de panneaux solaires en 2025 ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Le prix moyen d'une installation de panneaux solaires varie entre 8 000€ et 18 000€ selon la puissance (3 à 9 kWc). Avec les aides d'État (prime à l'autoconsommation, TVA réduite), le coût net se situe entre 6 000€ et 14 000€. Pour une installation de 6 kWc (taille standard), comptez environ 12 000€ avant aides, soit 9 500€ après déduction des aides."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Quelle économie sur ma facture d'électricité avec des panneaux solaires ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Avec des panneaux solaires en autoconsommation, vous pouvez réduire votre facture d'électricité de 40% à 70% selon votre taux d'autoconsommation. Pour un foyer consommant 6 000 kWh/an, cela représente une économie de 500€ à 900€ par an. Avec une batterie de stockage, l'économie peut atteindre 70-80%."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Combien de temps pour amortir des panneaux solaires ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Le temps d'amortissement d'une installation photovoltaïque varie entre 8 et 12 ans selon votre région, votre consommation et le taux d'autoconsommation. Les panneaux étant garantis 25 ans, vous bénéficiez ensuite de 13 à 17 ans d'électricité quasi-gratuite, générant un gain net de 12 000€ à 25 000€ sur la durée de vie totale."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Quelles sont les aides d'État pour installer des panneaux solaires en 2025 ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "En 2025, trois aides principales existent : (1) Prime à l'autoconsommation de 280€ à 380€ par kWc installé (soit 1 680€ à 2 280€ pour 6 kWc), (2) TVA réduite à 10% (5,5% pour installations ≤3 kWc), (3) Obligation d'achat du surplus à 0,13€/kWh pendant 20 ans. Total des aides : 2 500€ à 3 500€ selon configuration."
+        }
+      }]
+    }
+    </script>
 </head>
 <body>
-    
-    <!-- Sticky CTA Button -->
-    <button id="sticky-cta" class="sticky-cta" aria-label="Calculer mon retour sur investissement">
+    <!-- Sticky CTA -->
+    <button id="sticky-cta" class="sticky-cta" aria-label="Calculer mes économies">
         <span class="cta-icon">⚡</span>
         <span class="cta-text">Calculer mon ROI</span>
     </button>
@@ -26,7 +90,7 @@
                 <button class="mobile-menu-toggle" aria-label="Menu"><span class="hamburger"></span></button>
                 <ul class="nav-menu">
                     <li><a href="/#solutions" class="nav-link">Solutions</a></li>
-                    <li><a href="/simulateur.html" class="nav-link">Simulateur</a></li>
+                    <li><a href="/#simulateur" class="nav-link">Simulateur</a></li>
                     <li><a href="/blog/" class="nav-link">Blog</a></li>
                     <li><a href="/#simulateur" class="nav-link nav-link-cta">Calculer vos économies</a></li>
                 </ul>
@@ -34,44 +98,462 @@
         </nav>
     </header>
     
-    <main style="padding: 6rem 0;">
-        <div class="container" style="max-width: 900px;">
-            <div style="text-align: center; margin-bottom: 3rem;">
-                <div style="font-size: 4rem; margin-bottom: 1rem;">☀️</div>
-                <h1>Panneaux Solaires Photovoltaïques</h1>
-                <p style="font-size: 1.125rem; color: #6B7280; margin-top: 1rem;">Installation de panneaux solaires pour autoconsommation</p>
-            </div>
-            
-            <article style="line-height: 1.8;">
-                
-        <h2>Panneaux Solaires : Produisez votre électricité</h2>
-        <p>Installez des panneaux photovoltaïques de qualité professionnelle sur votre toiture.</p>
-        
-        <h3>Technologies disponibles</h3>
-        <ul>
-            <li><strong>Monocristallin</strong> : Rendement 20-22%, esthétique noire</li>
-            <li><strong>Polycristallin</strong> : Rendement 16-18%, rapport qualité/prix</li>
-            <li><strong>Bifacial</strong> : +10% de production via réflexion au sol</li>
-        </ul>
-        
-        <h3>Production moyenne</h3>
-        <p>Une installation de 6 kWc produit environ <strong>6 000 à 7 000 kWh/an</strong> en France.</p>
-        
-        <h3>Prix et aides</h3>
-        <ul>
-            <li>Coût moyen : 2 400-2 800 €/kWc installé</li>
-            <li>Prime autoconsommation : 280-380 €/kWc</li>
-            <li>TVA réduite 5,5% (≤3 kWc) ou 10%</li>
-        </ul>
-        
-                
-                <div style="margin-top: 4rem; text-align: center; padding: 3rem; background: linear-gradient(135deg, #F0F9FF 0%, #F0FDF4 100%); border-radius: 1rem;">
-                    <h3 style="margin-bottom: 1rem;">Intéressé par cette solution ?</h3>
-                    <p style="color: #6B7280; margin-bottom: 2rem;">Calculez votre ROI en 2 minutes avec notre simulateur.</p>
-                    <a href="/simulateur.html" class="btn btn-primary btn-large">Lancer le simulateur</a>
+    <main>
+        <!-- Hero Section -->
+        <section style="background: linear-gradient(135deg, #F0F9FF 0%, #F0FDF4 100%); padding: 6rem 2rem 4rem;">
+            <div class="container" style="max-width: 1100px;">
+                <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                    <span style="display: inline-block; padding: 0.5rem 1rem; background: white; color: #0066FF; font-weight: 700; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; border-radius: 9999px; margin-bottom: 1.5rem;">Panneaux Solaires 2025</span>
+                    <h1 style="font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem;">
+                        Réduisez vos factures d'électricité de <span style="background: linear-gradient(135deg, #0066FF 0%, #00D084 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">70% avec des panneaux solaires</span>
+                    </h1>
+                    <p style="font-size: 1.25rem; color: #6B7280; line-height: 1.7; margin-bottom: 2rem;">
+                        Installez des panneaux photovoltaïques en autoconsommation et libérez-vous de la hausse des prix de l'électricité. Jusqu'à 10 000€ d'aides d'État.
+                    </p>
+                    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                        <a href="/#simulateur" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 1.25rem 2rem; background: linear-gradient(135deg, #0066FF 0%, #0052CC 100%); color: white; font-weight: 700; border-radius: 9999px; text-decoration: none; box-shadow: 0 10px 25px rgba(0,102,255,0.3); transition: transform 0.2s;">
+                            Calculer mes économies
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </a>
+                        <a href="#fonctionnement" style="display: inline-flex; align-items: center; padding: 1.25rem 2rem; background: white; color: #1A1F2E; font-weight: 600; border: 2px solid #E5E7EB; border-radius: 9999px; text-decoration: none;">
+                            Comment ça marche ?
+                        </a>
+                    </div>
+                    <div style="display: flex; gap: 2rem; justify-content: center; margin-top: 3rem; flex-wrap: wrap;">
+                        <div style="text-align: center;">
+                            <div style="font-size: 2rem; font-weight: 800; color: #0066FF;">-70%</div>
+                            <div style="font-size: 0.875rem; color: #6B7280;">sur votre facture</div>
+                        </div>
+                        <div style="width: 1px; background: #E5E7EB;"></div>
+                        <div style="text-align: center;">
+                            <div style="font-size: 2rem; font-weight: 800; color: #0066FF;">25 ans</div>
+                            <div style="font-size: 0.875rem; color: #6B7280;">de garantie</div>
+                        </div>
+                        <div style="width: 1px; background: #E5E7EB;"></div>
+                        <div style="text-align: center;">
+                            <div style="font-size: 2rem; font-weight: 800; color: #0066FF;">10 000€</div>
+                            <div style="font-size: 0.875rem; color: #6B7280;">d'aides max</div>
+                        </div>
+                    </div>
                 </div>
-            </article>
-        </div>
+            </div>
+        </section>
+        
+        <!-- Douleurs (Pain Points) -->
+        <section style="padding: 6rem 2rem; background: white;">
+            <div class="container" style="max-width: 1100px;">
+                <div style="text-align: center; margin-bottom: 4rem;">
+                    <h2 style="font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; margin-bottom: 1rem;">
+                        Vous en avez <span style="color: #0066FF;">assez de subir</span> la hausse des prix ?
+                    </h2>
+                    <p style="font-size: 1.125rem; color: #6B7280; max-width: 700px; margin: 0 auto;">
+                        Chaque mois, votre facture d'électricité grignote votre pouvoir d'achat. Et ça ne va pas s'arrêter.
+                    </p>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                    <div style="padding: 2rem; background: #FEF2F2; border-left: 4px solid #EF4444; border-radius: 0.5rem;">
+                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">📈</div>
+                        <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem; color: #1A1F2E;">+300% en 10 ans</h3>
+                        <p style="color: #6B7280; line-height: 1.7;">
+                            Le prix de l'électricité a <strong>triplé depuis 2010</strong>. La CRE prévoit +10% minimum par an jusqu'en 2030. Combien coûtera 1 kWh dans 5 ans ?
+                        </p>
+                    </div>
+                    
+                    <div style="padding: 2rem; background: #FEF2F2; border-left: 4px solid #EF4444; border-radius: 0.5rem;">
+                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">⚠️</div>
+                        <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem; color: #1A1F2E;">Vous êtes otage</h3>
+                        <p style="color: #6B7280; line-height: 1.7;">
+                            EDF décide. Le gouvernement valide. Les marchés spéculent. Vous, vous <strong>payez le prix fort</strong> sans pouvoir agir.
+                        </p>
+                    </div>
+                    
+                    <div style="padding: 2rem; background: #FEF2F2; border-left: 4px solid #EF4444; border-radius: 0.5rem;">
+                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">🔌</div>
+                        <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem; color: #1A1F2E;">Menace de coupures</h3>
+                        <p style="color: #6B7280; line-height: 1.7;">
+                            RTE alerte sur les <strong>risques de délestage</strong>. En cas de pic de consommation hivernal, votre quartier peut être coupé sans préavis.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Proposition de valeur -->
+        <section style="padding: 6rem 2rem; background: linear-gradient(135deg, #0066FF 0%, #0052CC 100%); color: white;">
+            <div class="container" style="max-width: 900px; text-align: center;">
+                <h2 style="font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; margin-bottom: 1.5rem; color: white;">
+                    Reprenez le contrôle avec vos <span style="text-decoration: underline; text-decoration-color: #00D084;">propres panneaux solaires</span>
+                </h2>
+                <p style="font-size: 1.25rem; line-height: 1.7; opacity: 0.95; margin-bottom: 2rem;">
+                    Installez des panneaux photovoltaïques sur votre toit et produisez votre propre électricité. <strong>Vous devenez votre propre fournisseur</strong>. Chaque rayon de soleil réduit votre dépendance au réseau et fait baisser votre facture.
+                </p>
+                <div style="display: inline-flex; gap: 1rem; padding: 1.5rem 2rem; background: rgba(255,255,255,0.1); border-radius: 1rem; backdrop-filter: blur(10px);">
+                    <div>
+                        <div style="font-size: 2.5rem; font-weight: 800; margin-bottom: 0.25rem;">40-70%</div>
+                        <div style="font-size: 0.9375rem; opacity: 0.9;">de votre consommation couverte</div>
+                    </div>
+                    <div style="width: 1px; background: rgba(255,255,255,0.2);"></div>
+                    <div>
+                        <div style="font-size: 2.5rem; font-weight: 800; margin-bottom: 0.25rem;">500-900€</div>
+                        <div style="font-size: 0.9375rem; opacity: 0.9;">économisés chaque année</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Bénéfices -->
+        <section style="padding: 6rem 2rem; background: white;">
+            <div class="container" style="max-width: 1100px;">
+                <div style="text-align: center; margin-bottom: 4rem;">
+                    <h2 style="font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; margin-bottom: 1rem;">
+                        Les <span style="color: #00D084;">vrais bénéfices</span> de l'autoconsommation solaire
+                    </h2>
+                </div>
+                
+                <div style="display: grid; gap: 3rem;">
+                    <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 2rem; align-items: center;">
+                        <div style="background: #F0F9FF; aspect-ratio: 1; border-radius: 1rem; display: flex; align-items: center; justify-content: center; font-size: 5rem;">
+                            💰
+                        </div>
+                        <div>
+                            <h3 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 1rem; color: #1A1F2E;">Économies immédiates et durables</h3>
+                            <p style="color: #6B7280; line-height: 1.7; margin-bottom: 1rem;">
+                                Dès le premier jour, chaque kWh produit est un kWh non acheté au réseau. Avec une production moyenne de <strong>6 000 à 7 000 kWh/an pour 6 kWc</strong>, vous économisez <strong>600€ à 900€ par an</strong> selon votre taux d'autoconsommation.
+                            </p>
+                            <p style="color: #0066FF; font-weight: 600;">
+                                ✓ Facture divisée par 2 à 3 dès la première année<br>
+                                ✓ Économies qui augmentent avec l'inflation électrique<br>
+                                ✓ Gain net de 12 000€ à 25 000€ sur 25 ans
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; align-items: center;">
+                        <div>
+                            <h3 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 1rem; color: #1A1F2E;">Indépendance face aux coupures</h3>
+                            <p style="color: #6B7280; line-height: 1.7; margin-bottom: 1rem;">
+                                En cas de délestage ou panne réseau, vous continuez de produire de l'électricité. Avec une batterie de stockage (optionnelle), vous êtes <strong>100% autonome</strong> pendant 1 à 3 jours selon votre consommation.
+                            </p>
+                            <p style="color: #0066FF; font-weight: 600;">
+                                ✓ Production solaire garantie même en cas de coupure<br>
+                                ✓ Autonomie totale avec batterie de secours<br>
+                                ✓ Sécurité énergétique pour votre foyer
+                            </p>
+                        </div>
+                        <div style="background: #F0FDF4; aspect-ratio: 1; border-radius: 1rem; display: flex; align-items: center; justify-content: center; font-size: 5rem;">
+                            🔋
+                        </div>
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 2rem; align-items: center;">
+                        <div style="background: #FEF3C7; aspect-ratio: 1; border-radius: 1rem; display: flex; align-items: center; justify-content: center; font-size: 5rem;">
+                            📊
+                        </div>
+                        <div>
+                            <h3 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 1rem; color: #1A1F2E;">Revenus complémentaires garantis 20 ans</h3>
+                            <p style="color: #6B7280; line-height: 1.7; margin-bottom: 1rem;">
+                                Tout le surplus que vous ne consommez pas est <strong>racheté par EDF à 0,13€/kWh pendant 20 ans</strong> (obligation d'achat). Contrat garanti par l'État. C'est un revenu passif automatique, versé chaque année.
+                            </p>
+                            <p style="color: #0066FF; font-weight: 600;">
+                                ✓ Tarif de rachat garanti 20 ans<br>
+                                ✓ Versement automatique par EDF OA<br>
+                                ✓ 200€ à 500€ de revenus annuels selon surplus
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Témoignages -->
+        <section style="padding: 6rem 2rem; background: #F9FAFB;">
+            <div class="container" style="max-width: 1100px;">
+                <div style="text-align: center; margin-bottom: 4rem;">
+                    <h2 style="font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; margin-bottom: 1rem;">
+                        Ils ont sauté le pas
+                    </h2>
+                    <p style="font-size: 1.125rem; color: #6B7280;">Découvrez les retours d'expérience de nos clients</p>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                    <div style="padding: 2rem; background: white; border-radius: 1rem; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+                        <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem;">
+                            <span style="color: #FFB800;">⭐</span>
+                            <span style="color: #FFB800;">⭐</span>
+                            <span style="color: #FFB800;">⭐</span>
+                            <span style="color: #FFB800;">⭐</span>
+                            <span style="color: #FFB800;">⭐</span>
+                        </div>
+                        <p style="color: #1A1F2E; font-style: italic; line-height: 1.7; margin-bottom: 1.5rem;">
+                            "Installation 6 kWc en novembre 2023. Facture EDF passée de 180€/mois à 60€/mois. <strong>L'investissement sera rentabilisé en 9 ans</strong>, après j'ai 16 ans d'électricité quasi-gratuite !"
+                        </p>
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <div style="width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(135deg, #0066FF, #00D084); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700;">
+                                ML
+                            </div>
+                            <div>
+                                <div style="font-weight: 700; color: #1A1F2E;">Marc L.</div>
+                                <div style="font-size: 0.875rem; color: #6B7280;">Bordeaux (33) • Installation 6 kWc</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="padding: 2rem; background: white; border-radius: 1rem; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+                        <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem;">
+                            <span style="color: #FFB800;">⭐</span>
+                            <span style="color: #FFB800;">⭐</span>
+                            <span style="color: #FFB800;">⭐</span>
+                            <span style="color: #FFB800;">⭐</span>
+                            <span style="color: #FFB800;">⭐</span>
+                        </div>
+                        <p style="color: #1A1F2E; font-style: italic; line-height: 1.7; margin-bottom: 1.5rem;">
+                            "Avec la borne de recharge solaire, je fais le plein de ma voiture électrique gratuitement. <strong>Je ne vais plus à la station</strong>, et ça me fait économiser 150€/mois d'essence."
+                        </p>
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <div style="width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(135deg, #00D084, #FFB800); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700;">
+                                SD
+                            </div>
+                            <div>
+                                <div style="font-weight: 700; color: #1A1F2E;">Sophie D.</div>
+                                <div style="font-size: 0.875rem; color: #6B7280;">Lyon (69) • Installation 9 kWc + Borne</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="padding: 2rem; background: white; border-radius: 1rem; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+                        <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem;">
+                            <span style="color: #FFB800;">⭐</span>
+                            <span style="color: #FFB800;">⭐</span>
+                            <span style="color: #FFB800;">⭐</span>
+                            <span style="color: #FFB800;">⭐</span>
+                            <span style="color: #FFB800;">⭐</span>
+                        </div>
+                        <p style="color: #1A1F2E; font-style: italic; line-height: 1.7; margin-bottom: 1.5rem;">
+                            "Sceptique au début sur le ROI. Mais après 2 ans, <strong>je produis 95% de ma consommation estivale</strong>. Plus jamais je ne retournerai en arrière. Meilleur investissement de ma vie."
+                        </p>
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <div style="width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(135deg, #FFB800, #0066FF); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700;">
+                                JM
+                            </div>
+                            <div>
+                                <div style="font-weight: 700; color: #1A1F2E;">Jean-Marc R.</div>
+                                <div style="font-size: 0.875rem; color: #6B7280;">Marseille (13) • Installation 3 kWc</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Avantages techniques -->
+        <section id="fonctionnement" style="padding: 6rem 2rem; background: white;">
+            <div class="container" style="max-width: 1100px;">
+                <div style="text-align: center; margin-bottom: 4rem;">
+                    <h2 style="font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; margin-bottom: 1rem;">
+                        Comment ça fonctionne ?
+                    </h2>
+                    <p style="font-size: 1.125rem; color: #6B7280; max-width: 700px; margin: 0 auto;">
+                        Une installation photovoltaïque simple, fiable et garantie 25 ans
+                    </p>
+                </div>
+                
+                <div style="display: grid; gap: 3rem;">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                        <div style="text-align: center;">
+                            <div style="width: 80px; height: 80px; margin: 0 auto 1rem; background: #F0F9FF; border-radius: 1rem; display: flex; align-items: center; justify-content: center; font-size: 2.5rem;">
+                                ☀️
+                            </div>
+                            <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem;">1. Panneaux sur le toit</h3>
+                            <p style="color: #6B7280; line-height: 1.6;">
+                                Les cellules photovoltaïques captent la lumière du soleil et la transforment en électricité (courant continu).
+                            </p>
+                        </div>
+                        
+                        <div style="text-align: center;">
+                            <div style="width: 80px; height: 80px; margin: 0 auto 1rem; background: #F0FDF4; border-radius: 1rem; display: flex; align-items: center; justify-content: center; font-size: 2.5rem;">
+                                🔌
+                            </div>
+                            <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem;">2. Onduleur convertit</h3>
+                            <p style="color: #6B7280; line-height: 1.6;">
+                                L'onduleur transforme le courant continu en courant alternatif 230V compatible avec vos appareils.
+                            </p>
+                        </div>
+                        
+                        <div style="text-align: center;">
+                            <div style="width: 80px; height: 80px; margin: 0 auto 1rem; background: #FEF3C7; border-radius: 1rem; display: flex; align-items: center; justify-content: center; font-size: 2.5rem;">
+                                🏠
+                            </div>
+                            <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem;">3. Consommation directe</h3>
+                            <p style="color: #6B7280; line-height: 1.6;">
+                                L'électricité produite alimente en priorité vos appareils (frigo, box, éclairage...).
+                            </p>
+                        </div>
+                        
+                        <div style="text-align: center;">
+                            <div style="width: 80px; height: 80px; margin: 0 auto 1rem; background: #FEF2F2; border-radius: 1rem; display: flex; align-items: center; justify-content: center; font-size: 2.5rem;">
+                                📊
+                            </div>
+                            <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem;">4. Surplus revendu</h3>
+                            <p style="color: #6B7280; line-height: 1.6;">
+                                Si vous produisez plus que vous consommez, le surplus est automatiquement revendu à EDF à 0,13€/kWh.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div style="padding: 2rem; background: linear-gradient(135deg, #F0F9FF 0%, #F0FDF4 100%); border-radius: 1rem; border-left: 4px solid #0066FF;">
+                        <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: #1A1F2E;">
+                            Garanties & Certifications
+                        </h3>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;">
+                            <div>
+                                <p style="font-weight: 600; color: #0066FF; margin-bottom: 0.5rem;">✓ Panneaux garantis 25 ans</p>
+                                <p style="font-size: 0.875rem; color: #6B7280;">Performance linéaire garantie à 80% après 25 ans</p>
+                            </div>
+                            <div>
+                                <p style="font-weight: 600; color: #0066FF; margin-bottom: 0.5rem;">✓ Onduleur garanti 10 ans</p>
+                                <p style="font-size: 0.875rem; color: #6B7280;">Extension possible à 20 ans selon fabricant</p>
+                            </div>
+                            <div>
+                                <p style="font-weight: 600; color: #0066FF; margin-bottom: 0.5rem;">✓ Certifications IEC</p>
+                                <p style="font-size: 0.875rem; color: #6B7280;">IEC 61215, IEC 61730, conformes normes UE</p>
+                            </div>
+                            <div>
+                                <p style="font-weight: 600; color: #0066FF; margin-bottom: 0.5rem;">✓ Installation RGE</p>
+                                <p style="font-size: 0.875rem; color: #6B7280;">Installateur Reconnu Garant de l'Environnement</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- FAQ -->
+        <section style="padding: 6rem 2rem; background: #F9FAFB;">
+            <div class="container" style="max-width: 900px;">
+                <div style="text-align: center; margin-bottom: 4rem;">
+                    <h2 style="font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; margin-bottom: 1rem;">
+                        Questions fréquentes
+                    </h2>
+                </div>
+                
+                <div style="display: grid; gap: 1.5rem;">
+                    <details style="padding: 2rem; background: white; border-radius: 1rem; cursor: pointer;">
+                        <summary style="font-size: 1.125rem; font-weight: 700; color: #1A1F2E; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+                            Combien coûte une installation de panneaux solaires en 2025 ?
+                            <span style="font-size: 1.5rem; color: #0066FF;">+</span>
+                        </summary>
+                        <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #E5E7EB; color: #6B7280; line-height: 1.7;">
+                            <p>Le prix moyen d'une installation de panneaux solaires varie entre <strong>8 000€ et 18 000€</strong> selon la puissance (3 à 9 kWc). Avec les aides d'État (prime à l'autoconsommation, TVA réduite), le coût net se situe entre <strong>6 000€ et 14 000€</strong>.</p>
+                            <p style="margin-top: 1rem;">Pour une installation de <strong>6 kWc</strong> (taille standard pour un foyer de 4 personnes), comptez environ :</p>
+                            <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                                <li>• 12 000€ TTC avant aides</li>
+                                <li>• -2 500€ de prime à l'autoconsommation</li>
+                                <li>• Soit <strong>9 500€ net</strong> après aides</li>
+                            </ul>
+                        </div>
+                    </details>
+                    
+                    <details style="padding: 2rem; background: white; border-radius: 1rem; cursor: pointer;">
+                        <summary style="font-size: 1.125rem; font-weight: 700; color: #1A1F2E; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+                            Quelle économie sur ma facture d'électricité avec des panneaux solaires ?
+                            <span style="font-size: 1.5rem; color: #0066FF;">+</span>
+                        </summary>
+                        <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #E5E7EB; color: #6B7280; line-height: 1.7;">
+                            <p>Avec des panneaux solaires en autoconsommation, vous pouvez réduire votre facture d'électricité de <strong>40% à 70%</strong> selon votre taux d'autoconsommation.</p>
+                            <p style="margin-top: 1rem;">Exemple concret pour un foyer consommant 6 000 kWh/an :</p>
+                            <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                                <li>• Sans batterie (40% autoconso) : <strong>-550€/an</strong></li>
+                                <li>• Avec batterie (70% autoconso) : <strong>-900€/an</strong></li>
+                                <li>• Sur 25 ans : <strong>13 000€ à 22 000€ d'économies</strong></li>
+                            </ul>
+                        </div>
+                    </details>
+                    
+                    <details style="padding: 2rem; background: white; border-radius: 1rem; cursor: pointer;">
+                        <summary style="font-size: 1.125rem; font-weight: 700; color: #1A1F2E; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+                            Combien de temps pour amortir des panneaux solaires ?
+                            <span style="font-size: 1.5rem; color: #0066FF;">+</span>
+                        </summary>
+                        <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #E5E7EB; color: #6B7280; line-height: 1.7;">
+                            <p>Le temps d'amortissement d'une installation photovoltaïque varie entre <strong>8 et 12 ans</strong> selon :</p>
+                            <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                                <li>• Votre région (ensoleillement)</li>
+                                <li>• Votre consommation annuelle</li>
+                                <li>• Votre taux d'autoconsommation</li>
+                            </ul>
+                            <p style="margin-top: 1rem;">Les panneaux étant garantis 25 ans, vous bénéficiez ensuite de <strong>13 à 17 ans d'électricité quasi-gratuite</strong>, générant un gain net de <strong>12 000€ à 25 000€</strong> sur la durée de vie totale.</p>
+                        </div>
+                    </details>
+                    
+                    <details style="padding: 2rem; background: white; border-radius: 1rem; cursor: pointer;">
+                        <summary style="font-size: 1.125rem; font-weight: 700; color: #1A1F2E; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+                            Quelles sont les aides d'État pour installer des panneaux solaires en 2025 ?
+                            <span style="font-size: 1.5rem; color: #0066FF;">+</span>
+                        </summary>
+                        <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #E5E7EB; color: #6B7280; line-height: 1.7;">
+                            <p>En 2025, trois aides principales existent :</p>
+                            <p style="margin-top: 1rem;"><strong>1. Prime à l'autoconsommation</strong></p>
+                            <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                                <li>• ≤3 kWc : 380€/kWc (soit 1 140€ pour 3 kWc)</li>
+                                <li>• 3-9 kWc : 280€/kWc (soit 1 680€ pour 6 kWc)</li>
+                                <li>• Versée en 1 fois à la mise en service</li>
+                            </ul>
+                            <p style="margin-top: 1rem;"><strong>2. TVA réduite</strong></p>
+                            <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                                <li>• 5,5% pour installations ≤3 kWc</li>
+                                <li>• 10% pour installations >3 kWc</li>
+                            </ul>
+                            <p style="margin-top: 1rem;"><strong>3. Obligation d'achat du surplus</strong></p>
+                            <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                                <li>• Tarif garanti : 0,13€/kWh pendant 20 ans</li>
+                                <li>• Contrat EDF Obligation d'Achat</li>
+                            </ul>
+                            <p style="margin-top: 1rem;"><strong>Total des aides : 2 500€ à 3 500€</strong> selon configuration.</p>
+                        </div>
+                    </details>
+                    
+                    <details style="padding: 2rem; background: white; border-radius: 1rem; cursor: pointer;">
+                        <summary style="font-size: 1.125rem; font-weight: 700; color: #1A1F2E; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+                            Mes panneaux fonctionnent-ils quand il pleut ou en hiver ?
+                            <span style="font-size: 1.5rem; color: #0066FF;">+</span>
+                        </summary>
+                        <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #E5E7EB; color: #6B7280; line-height: 1.7;">
+                            <p>Oui ! Les panneaux solaires produisent dès qu'il y a de la lumière (même diffuse). Ils ne nécessitent pas de soleil direct.</p>
+                            <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                                <li>• <strong>Temps couvert</strong> : production à 20-30% de la capacité max</li>
+                                <li>• <strong>Hiver</strong> : production réduite mais continue (les panneaux adorent le froid !)</li>
+                                <li>• <strong>Pluie</strong> : production faible mais existante + effet auto-nettoyant</li>
+                            </ul>
+                            <p style="margin-top: 1rem;">La production annuelle tient compte de ces variations. C'est pourquoi on calcule en moyenne sur 12 mois pour estimer le ROI.</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+        
+        <!-- CTA Final -->
+        <section style="padding: 6rem 2rem; background: linear-gradient(135deg, #0066FF 0%, #0052CC 100%); color: white;">
+            <div class="container" style="max-width: 800px; text-align: center;">
+                <h2 style="font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; margin-bottom: 1.5rem; color: white;">
+                    Prêt à réduire vos factures ?
+                </h2>
+                <p style="font-size: 1.25rem; line-height: 1.7; opacity: 0.95; margin-bottom: 2rem;">
+                    Obtenez une simulation personnalisée en 2 minutes. Gratuit, sans engagement.
+                </p>
+                <a href="/#simulateur" style="display: inline-flex; align-items: center; gap: 0.75rem; padding: 1.5rem 2.5rem; background: white; color: #0066FF; font-weight: 700; font-size: 1.25rem; border-radius: 9999px; text-decoration: none; box-shadow: 0 10px 25px rgba(0,0,0,0.2); transition: transform 0.2s;">
+                    Calculer mes économies
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                    </svg>
+                </a>
+                <p style="margin-top: 2rem; font-size: 0.9375rem; opacity: 0.9;">
+                    ✓ Calcul basé sur vos données réelles &nbsp;|&nbsp; ✓ Aides d'État 2025 incluses &nbsp;|&nbsp; ✓ Zéro engagement
+                </p>
+            </div>
+        </section>
     </main>
     
     <footer class="site-footer">
