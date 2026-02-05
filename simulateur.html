@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calculez votre ROI solaire en 2 minutes. Simulation gratuite et sans engagement.">
+    <title>Simulateur ROI - Calculez vos économies | Indépendance Énergétique</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <style>
+        .simulator-container { max-width: 900px; margin: 0 auto; padding: 4rem 1.5rem; }
+        .simulator-form { background: white; padding: 3rem; border-radius: 1rem; box-shadow: 0 10px 40px rgba(0,0,0,0.1); }
+        .form-group { margin-bottom: 2rem; }
+        .form-label { display: block; font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.125rem; margin-bottom: 0.75rem; color: #1A1F2E; }
+        .form-help { font-size: 0.875rem; color: #6B7280; margin-top: 0.5rem; }
+        .slider-container { position: relative; padding-top: 1rem; }
+        input[type="range"] { width: 100%; height: 8px; background: linear-gradient(to right, #0066FF 0%, #00D084 100%); border-radius: 4px; outline: none; -webkit-appearance: none; }
+        input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 24px; height: 24px; background: white; border: 3px solid #0066FF; border-radius: 50%; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.2); }
+        input[type="range"]::-moz-range-thumb { width: 24px; height: 24px; background: white; border: 3px solid #0066FF; border-radius: 50%; cursor: pointer; }
+        .slider-value { display: inline-block; padding: 0.5rem 1rem; background: #F3F4F6; border-radius: 0.5rem; font-family: 'Space Mono', monospace; font-weight: 700; color: #0066FF; }
+        select { width: 100%; padding: 1rem; font-size: 1rem; border: 2px solid #E5E7EB; border-radius: 0.5rem; background: white; cursor: pointer; font-family: 'Space Mono', monospace; }
+        .checkbox-wrapper { display: flex; align-items: center; gap: 0.75rem; padding: 1rem; background: #F9FAFB; border-radius: 0.5rem; cursor: pointer; }
+        input[type="checkbox"] { width: 24px; height: 24px; cursor: pointer; }
+        .submit-btn { width: 100%; padding: 1.25rem; font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.125rem; background: linear-gradient(135deg, #0066FF 0%, #0052CC 100%); color: white; border: none; border-radius: 9999px; cursor: pointer; transition: all 0.25s; }
+        .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(0, 102, 255, 0.3); }
+        #simulation-results { display: none; margin-top: 3rem; padding: 3rem; background: linear-gradient(135deg, #F0F9FF 0%, #F0FDF4 100%); border-radius: 1rem; border: 2px solid #0066FF; }
+        #simulation-results.visible { display: block; animation: fade-up 0.6s ease-out; }
+        .results-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-top: 2rem; }
+        .result-card { text-align: center; }
+        .result-value { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 2.5rem; color: #0066FF; margin-bottom: 0.5rem; }
+        .result-label { font-size: 0.9375rem; color: #6B7280; }
+        #lead-form-simulateur { display: none; margin-top: 3rem; padding: 2rem; background: white; border-radius: 1rem; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        #lead-form-simulateur.visible { display: block; animation: fade-up 0.6s ease-out 0.3s backwards; }
+        .lead-input { width: 100%; padding: 1rem; margin-bottom: 1rem; border: 2px solid #E5E7EB; border-radius: 0.5rem; font-family: 'Space Mono', monospace; font-size: 1rem; }
+        .lead-input:focus { outline: none; border-color: #0066FF; }
+        .rgpd-consent { display: flex; align-items: flex-start; gap: 0.75rem; margin: 1.5rem 0; font-size: 0.875rem; color: #6B7280; }
+        .success-message { padding: 2rem; background: #ECFDF5; border: 2px solid #00D084; border-radius: 1rem; text-align: center; margin-top: 2rem; opacity: 0; transform: scale(0.9); transition: all 0.4s; }
+        .success-icon { font-size: 4rem; color: #00D084; margin-bottom: 1rem; }
+        @keyframes fade-up { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        #batterie-options { display: none; margin-top: 1rem; padding: 1.5rem; background: #F9FAFB; border-radius: 0.5rem; }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <nav class="main-nav">
+            <div class="nav-container">
+                <a href="/" class="logo"><span class="logo-text">Indépendance</span><span class="logo-highlight">Énergétique</span></a>
+                <button class="mobile-menu-toggle" aria-label="Menu"><span class="hamburger"></span></button>
+                <ul class="nav-menu">
+                    <li><a href="/#solutions" class="nav-link">Solutions</a></li>
+                    <li><a href="/simulateur.html" class="nav-link active">Simulateur</a></li>
+                    <li><a href="/blog/" class="nav-link">Blog</a></li>
+                    <li><a href="/contact.html" class="nav-link nav-link-cta">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+    <main>
+        <div class="simulator-container">
+            <h1 style="font-size: 3rem; margin-bottom: 1rem; text-align: center;">Calculez votre ROI</h1>
+            <p style="text-align: center; font-size: 1.125rem; color: #6B7280; margin-bottom: 3rem;">Simulation gratuite en 2 minutes. Résultats basés sur vos données réelles.</p>
+            
+            <form id="simulator-form" class="simulator-form">
+                <div class="form-group">
+                    <label class="form-label">Consommation électrique annuelle</label>
+                    <div class="slider-container">
+                        <input type="range" id="consommation-slider" min="1000" max="20000" step="500" value="6000">
+                        <p style="margin-top: 1rem;"><span class="slider-value" id="consommation-value">6 000 kWh/an</span></p>
+                    </div>
+                    <p class="form-help">💡 Retrouvez cette info sur votre facture EDF/Enedis</p>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Surface de toit disponible</label>
+                    <div class="slider-container">
+                        <input type="range" id="surface-slider" min="10" max="100" step="5" value="30">
+                        <p style="margin-top: 1rem;"><span class="slider-value" id="surface-value">30 m²</span></p>
+                    </div>
+                    <p class="form-help">📐 Orientation Sud idéalement, sans ombrage</p>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Votre région</label>
+                    <select id="region-select">
+                        <option value="nord">Nord (Lille, Paris, Strasbourg)</option>
+                        <option value="centre" selected>Centre (Lyon, Nantes, Bordeaux)</option>
+                        <option value="sud">Sud (Marseille, Toulouse, Nice)</option>
+                    </select>
+                    <p class="form-help">🌞 La production varie selon l'ensoleillement</p>
+                </div>
+                
+                <div class="form-group">
+                    <label class="checkbox-wrapper">
+                        <input type="checkbox" id="batterie-checkbox">
+                        <span><strong>Ajouter une batterie de stockage</strong><br><small>Augmente votre taux d'autoconsommation de 35% à 75%</small></span>
+                    </label>
+                    
+                    <div id="batterie-options">
+                        <label class="form-label">Capacité de la batterie</label>
+                        <div class="slider-container">
+                            <input type="range" id="batterie-slider" min="5" max="20" step="1" value="10">
+                            <p style="margin-top: 1rem;"><span class="slider-value" id="batterie-value">10 kWh</span></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <button type="submit" class="submit-btn">Calculer mes économies →</button>
+            </form>
+            
+            <div id="simulation-results">
+                <h2 style="font-size: 2rem; margin-bottom: 1.5rem; text-align: center;">Vos résultats personnalisés</h2>
+                
+                <div class="results-grid">
+                    <div class="result-card">
+                        <div class="result-value roi-value" data-animate-number>0 €</div>
+                        <div class="result-label">Gain net sur 25 ans</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-value economies-annuelles" data-animate-number>0 €</div>
+                        <div class="result-label">Économies annuelles</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-value aides-etat" data-animate-number>0 €</div>
+                        <div class="result-label">Aides d'État</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-value temps-amortissement">0 ans</div>
+                        <div class="result-label">Temps d'amortissement</div>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 2rem; padding: 1.5rem; background: white; border-radius: 0.5rem;">
+                    <p style="font-size: 0.9375rem; color: #6B7280;"><strong>Détails de l'installation :</strong></p>
+                    <ul style="margin-top: 0.75rem; font-size: 0.875rem; color: #6B7280; list-style: none;">
+                        <li>⚡ Puissance : <span class="puissance-installation">0 kWc</span></li>
+                        <li>💰 Coût total : <span class="cout-installation">0 €</span></li>
+                        <li>🔋 Taux d'autoconsommation : <span class="taux-autoconso">0%</span></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <form id="lead-form-simulateur">
+                <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Recevez votre étude personnalisée</h3>
+                <p style="color: #6B7280; margin-bottom: 1.5rem;">Un expert vous recontacte sous 24h pour affiner votre projet.</p>
+                
+                <input type="text" class="lead-input lead-name" placeholder="Nom et prénom *" required>
+                <input type="email" class="lead-input lead-email" placeholder="Email *" required>
+                <input type="tel" class="lead-input lead-phone" placeholder="Téléphone *" required>
+                
+                <div class="rgpd-consent">
+                    <input type="checkbox" class="lead-rgpd-consent" required>
+                    <label>J'accepte que mes données soient transmises aux partenaires installateurs certifiés. <a href="/politique-confidentialite.html" style="color: #0066FF;">En savoir plus</a></label>
+                </div>
+                
+                <button type="submit" class="submit-btn">Envoyer ma demande</button>
+            </form>
+        </div>
+    </main>
+    
+    <footer class="site-footer">
+        <div class="container"><div class="footer-bottom"><p>&copy; 2025 Indépendance Énergétique</p></div></div>
+    </footer>
+    
+    <script src="js/main.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/simulateur.js"></script>
+</body>
+</html>
