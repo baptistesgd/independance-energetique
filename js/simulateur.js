@@ -171,6 +171,21 @@ function renderStep() {
     stepsContainer.style.transition = 'opacity 0.3s ease';
     stepsContainer.style.opacity = '1';
   }, 10);
+  
+  // CORRECTION : Scroll smooth vers le simulateur à chaque changement d'étape
+  setTimeout(() => {
+    const simulatorSection = document.getElementById('simulateur');
+    if (simulatorSection) {
+      const headerOffset = 100; // Offset pour éviter que le header ne cache le contenu
+      const elementPosition = simulatorSection.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  }, 50); // Petit délai pour laisser le contenu se rendre
 }
 
 function getStepHTML(stepIndex) {
