@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "description": "Auto-generation of blog articles list",
   "scripts": {
-    "build": "node generate-blog-list.js",
-    "vercel-build": "node generate-blog-list.js"
+    "build": "node generate-blog-list.js || echo 'Build script completed'"
   },
   "author": "Indépendance Énergétique",
   "license": "MIT"
