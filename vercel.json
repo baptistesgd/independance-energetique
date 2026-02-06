@@ -1,9 +1,6 @@
 {
-  "version": 2,
-  "cleanUrls": true,
-  "trailingSlash": false,
-  "rewrites": [
-    { "source": "/blog/:article", "destination": "/blog/:article.html" },
-    { "source": "/produits/:produit", "destination": "/produits/:produit.html" }
-  ]
+  "buildCommand": "npm run build",
+  "outputDirectory": ".",
+  "devCommand": "npm start",
+  "installCommand": "npm install"
 }
