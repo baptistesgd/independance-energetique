@@ -14,7 +14,9 @@ body {
 }
 
 /* Input styles */
-input[type="text"]:focus {
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus {
     outline: none;
     border-color: #0066FF !important;
     box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.1);
@@ -53,6 +55,7 @@ input[type="range"]::-moz-range-thumb {
 .radio-card input[type="radio"]:checked + div {
     border-color: #0066FF !important;
     background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%);
+    transform: scale(1.02);
 }
 
 .radio-card:hover div {
@@ -61,59 +64,66 @@ input[type="range"]::-moz-range-thumb {
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-/* Equipment checkboxes */
-.equipment-check:checked {
+/* Equipment labels */
+.equipment-label:has(.equipment-check:checked) {
+    background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%) !important;
+    border-color: #0066FF !important;
+}
+
+.equipment-label:hover {
+    background: #F3F4F6 !important;
+    transform: translateX(4px);
+}
+
+.equipment-check {
     accent-color: #0066FF;
 }
 
-label:has(.equipment-check:checked) {
-    background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%) !important;
-    border: 2px solid #0066FF;
-}
-
-label:has(.equipment-check):hover {
-    background: #F3F4F6 !important;
-}
-
-/* Config options */
-.config-option:checked ~ div {
-    color: #0066FF;
-}
-
-#battery-card:has(#option-battery:checked) {
+/* Option cards */
+.option-card:has(.config-option:checked)#battery-card {
     border-color: #00D084 !important;
     background: linear-gradient(135deg, #F0FDF4 0%, #DCFCE7 100%) !important;
 }
 
-#wind-card:has(#option-wind:checked) {
+.option-card:has(.config-option:checked)#wind-card {
     border-color: #3B82F6 !important;
     background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%) !important;
 }
 
-#charger-card:has(#option-charger:checked) {
+.option-card:has(.config-option:checked)#charger-card {
     border-color: #FFA500 !important;
     background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%) !important;
 }
 
-/* Button hover effects */
+.option-card:hover {
+    transform: translateX(4px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* Buttons */
 button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15) !important;
 }
 
 button:active {
     transform: translateY(0);
 }
 
-/* Step indicators active state */
+/* Step indicators */
 .step-indicator.active {
     background: #0066FF !important;
     color: white !important;
+    box-shadow: 0 4px 12px rgba(0,102,255,0.3);
 }
 
 .step-indicator.completed {
     background: #00D084 !important;
     color: white !important;
+}
+
+.connector.active {
+    background: linear-gradient(90deg, #00D084 0%, #0066FF 100%) !important;
 }
 
 /* Animations */
@@ -150,5 +160,9 @@ button:active {
     
     #step-1, #step-2, #step-3 > div > div {
         padding: 2rem !important;
+    }
+    
+    #step-3 > div {
+        gap: 1rem !important;
     }
 }
