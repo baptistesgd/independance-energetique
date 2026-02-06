@@ -36,6 +36,58 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     
     <style>
+        /* ============================================
+           CORRECTIONS HERO - Boutons et Stats
+           ============================================ */
+        
+        /* Fix boutons hero - éviter l'étirement */
+        .hero-cta-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+        
+        .hero-cta-group .btn {
+            flex: 0 0 auto;
+            min-width: 200px;
+            max-width: 280px;
+            white-space: nowrap;
+        }
+        
+        /* Amélioration stats hero */
+        .hero-stats .stat-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .hero-stats .stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .hero-stats .stat-label {
+            font-size: 0.875rem;
+            line-height: 1.4;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-cta-group {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .hero-cta-group .btn {
+                max-width: 100%;
+            }
+        }
+        
+        /* ============================================
+           STYLES EXISTANTS
+           ============================================ */
+        
         /* Effet hover sur les cartes solutions */
         [data-animate="fade-up"]:hover {
             transform: translateY(-8px);
@@ -272,15 +324,15 @@
                     Solaire, stockage et mobilité : simulez votre trajectoire vers l'autonomie. Obtenez une étude chiffrée de votre potentiel d'économie et transformez votre foyer en véritable centrale d'énergie.
                 </p>
                 
-                <div class="hero-cta-group" data-animate="fade-up" data-delay="300">
-                    <a href="/simulateur.html" class="btn btn-primary btn-large">
-                        <span>Calculer mes économies</span>
+                <div class="hero-cta-group" data-animate="fade-up" data-delay="300" style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
+                    <a href="#simulateur" class="btn btn-primary btn-large" style="flex: 0 0 auto; min-width: 200px; max-width: 280px;">
+                        <span>⚡ Calculer mes économies</span>
                         <svg class="btn-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
                             <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                         </svg>
                     </a>
-                    <a href="/#solutions" class="btn btn-secondary btn-large">
-                        Découvrir les solutions
+                    <a href="#solutions" class="btn btn-secondary btn-large" style="flex: 0 0 auto; min-width: 200px; max-width: 280px;">
+                        🔍 Découvrir les solutions
                     </a>
                 </div>
                 
@@ -291,12 +343,15 @@
                     </div>
                     <div class="stat-divider"></div>
                     <div class="stat-item">
-                        <div class="stat-value">~100€/mois<.*?span>.*?<div class="stat-label">économies moyennes</div>
+                        <div class="stat-icon">💰</div>
+                        <div class="stat-value">Revendre</div>
+                        <div class="stat-label">Gagner de l'argent en revendant votre électricité</div>
                     </div>
                     <div class="stat-divider"></div>
                     <div class="stat-item">
-                        <div class="stat-value">Jusqu'à 10k€</div>
-                        <div class="stat-label">d'aides d'État</div>
+                        <div class="stat-icon">🎁</div>
+                        <div class="stat-value">Aides d'État</div>
+                        <div class="stat-label">Bénéficiez d'aides de l'État</div>
                     </div>
                 </div>
             </div>
@@ -766,6 +821,7 @@
     <script src="js/main.js"></script>
     <script src="js/navigation.js"></script>
     <script src="js/simulateur.js"></script>
+    <script src="js/blog-loader.js"></script>
     <style>
         input[type="range"]::-webkit-slider-thumb {
             -webkit-appearance: none;
