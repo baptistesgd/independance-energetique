@@ -195,7 +195,7 @@ function getStep0_Intentions() {
       <h2 class="step-title">🎯 Quel est votre objectif prioritaire ?</h2>
       <p class="step-subtitle">Sélectionnez une ou plusieurs solutions qui vous intéressent</p>
       
-      <div class="intentions-grid">
+      <div class="intentions-grid-fixed">
         <div class="intention-card" data-intention="solaire">
           <div class="intention-icon">☀️</div>
           <div class="intention-title">Produire</div>
@@ -224,7 +224,7 @@ function getStep0_Intentions() {
           <div class="intention-badge">Prime 500€</div>
         </div>
         
-        <div class="intention-card intention-pack" data-intention="pack">
+        <div class="intention-card intention-pack-inline" data-intention="pack">
           <div class="intention-icon">🌍</div>
           <div class="intention-title">Le Pack Total</div>
           <div class="intention-desc">Autonomie maximale</div>
@@ -250,11 +250,15 @@ function getStep1_Dynamic() {
   if (intentions.includes('solaire') || intentions.includes('pack')) {
     return getStep1_Solar();
   }
+  // Si éolien ET (batterie OU borne) : proposer d'ajouter solaire
+  else if (intentions.includes('eolien') && (intentions.includes('batterie') || intentions.includes('borne'))) {
+    return getStep1_Wind_WithBatteryOrBorne();
+  }
   // Si éolien seulement : question code postal
   else if (intentions.includes('eolien')) {
     return getStep1_Wind();
   }
-  // Si batterie ou borne sans production : suggestion
+  // Si batterie ou borne sans production : suggestion obligatoire
   else if (intentions.includes('batterie') || intentions.includes('borne')) {
     return getStep1_NeedProduction();
   }
@@ -402,6 +406,55 @@ function getStep1_Wind() {
       
       <div class="info-box info-info" style="margin-top: 20px;">
         <strong>💡 Bon à savoir :</strong> Les zones côtières (Bretagne, Normandie, côte Atlantique) ont le meilleur potentiel éolien. Une étude de vent locale sera nécessaire pour valider la faisabilité.
+      </div>
+    </div>
+  `;
+}
+
+function getStep1_Wind_WithBatteryOrBorne() {
+  return `
+    <div class="step-container">
+      <h2 class="step-title">🌬️ Configuration de votre éolienne domestique</h2>
+      <p class="step-subtitle">Le vent varie fortement selon les régions</p>
+      
+      <div class="form-group">
+        <label for="postalCodeWind">
+          <span class="label-icon">📍</span>
+          Code postal de votre installation
+        </label>
+        <input 
+          type="text" 
+          id="postalCodeWind" 
+          class="form-input" 
+          placeholder="Ex: 75001"
+          maxlength="5"
+          pattern="[0-9]{5}"
+          value="${simulatorState.data.postalCode}"
+        >
+        <small class="input-hint">Détermine le potentiel éolien de votre zone</small>
+      </div>
+      
+      <div class="info-box info-info" style="margin-top: 20px; margin-bottom: 30px;">
+        <strong>💡 Bon à savoir :</strong> Les zones côtières (Bretagne, Normandie, côte Atlantique) ont le meilleur potentiel éolien.
+      </div>
+      
+      <div class="question-box">
+        <h3>🔋 Complétez avec des panneaux solaires ?</h3>
+        <p style="color: #666; margin-bottom: 20px;">
+          L'éolien produit surtout l'hiver et la nuit. Le solaire complète parfaitement en journée et l'été.
+        </p>
+        
+        <div class="options-grid">
+          <div class="option-card option-card-add" data-value="add-solar">
+            <div class="option-icon">➕ ☀️</div>
+            <div class="option-label">Ajouter des panneaux solaires</div>
+            <div class="option-badge">Recommandé</div>
+          </div>
+          <div class="option-card" data-value="skip-solar">
+            <div class="option-icon">⏭️</div>
+            <div class="option-label">Continuer sans solaire</div>
+          </div>
+        </div>
       </div>
     </div>
   `;
@@ -686,36 +739,11 @@ function getStep5_Results() {
             <div class="financial-period">par an</div>
           </div>
           
-          <div class="financial-card">
-            <div class="financial-icon">🎁</div>
-            <div class="financial-label">Aides de l'État</div>
-            <div class="financial-value">-${Math.round(simulatorState.results.stateAid)} €</div>
-            <div class="financial-period">déduits</div>
-          </div>
-          
           <div class="financial-card financial-card-highlight">
-            <div class="financial-icon">⏱️</div>
-            <div class="financial-label">Rentabilisé en</div>
-            <div class="financial-value">${simulatorState.results.roi} ans</div>
-            <div class="financial-period">puis gains purs !</div>
-          </div>
-        </div>
-      </div>
-      
-      <!-- INVESTISSEMENT -->
-      <div class="investment-section">
-        <div class="investment-breakdown">
-          <div class="investment-row">
-            <span class="investment-label">Coût total installation</span>
-            <span class="investment-value">${simulatorState.results.totalCost.toLocaleString('fr-FR')} €</span>
-          </div>
-          <div class="investment-row investment-row-positive">
-            <span class="investment-label">- Aides 2026</span>
-            <span class="investment-value">-${simulatorState.results.stateAid.toLocaleString('fr-FR')} €</span>
-          </div>
-          <div class="investment-row investment-row-total">
-            <span class="investment-label">Votre investissement net</span>
-            <span class="investment-value">${simulatorState.results.netCost.toLocaleString('fr-FR')} €</span>
+            <div class="financial-icon">🎁</div>
+            <div class="financial-label">Aides de l'État 2026</div>
+            <div class="financial-value">+${Math.round(simulatorState.results.stateAid)} €</div>
+            <div class="financial-period">pour vous</div>
           </div>
         </div>
       </div>
@@ -1253,7 +1281,8 @@ function generateSuggestions() {
       title: 'Panneaux Solaires',
       benefit: '+40% d\'autonomie',
       impact: 'Production de jour optimale',
-      cost: '~12 000 €'
+      cost: '~12 000 €',
+      intention: 'solaire'
     });
   }
   
@@ -1263,7 +1292,8 @@ function generateSuggestions() {
       title: 'Batterie de Stockage',
       benefit: '+35% d\'autonomie',
       impact: 'Utilisez votre énergie la nuit',
-      cost: '~8 000 €'
+      cost: '~8 000 €',
+      intention: 'batterie'
     });
   }
   
@@ -1273,7 +1303,8 @@ function generateSuggestions() {
       title: 'Éolienne Domestique',
       benefit: '+15% d\'autonomie',
       impact: 'Production hiver et nuit',
-      cost: '~15 000 €'
+      cost: '~15 000 €',
+      intention: 'eolien'
     });
   }
   
@@ -1283,25 +1314,49 @@ function generateSuggestions() {
       title: 'Borne de Recharge',
       benefit: 'Économies recharge',
       impact: 'Rechargez avec votre production',
-      cost: '~1 200 € (prime -500€)'
+      cost: '~1 200 € (prime -500€)',
+      intention: 'borne'
     });
   }
   
-  // Générer le HTML
+  // Générer le HTML avec boutons cliquables
   let html = '';
   suggestions.forEach(suggestion => {
     html += `
-      <div class="suggestion-card">
+      <div class="suggestion-card" data-suggestion-intention="${suggestion.intention}" style="cursor: pointer;">
         <div class="suggestion-icon">${suggestion.icon}</div>
         <div class="suggestion-title">${suggestion.title}</div>
         <div class="suggestion-benefit">${suggestion.benefit}</div>
         <div class="suggestion-impact">${suggestion.impact}</div>
         <div class="suggestion-cost">${suggestion.cost}</div>
+        <button class="btn btn-primary" style="width: 100%; margin-top: 15px; padding: 10px;">
+          ➕ Ajouter cette solution
+        </button>
       </div>
     `;
   });
   
   suggestionsGrid.innerHTML = html;
+  
+  // Attacher les événements de clic
+  document.querySelectorAll('.suggestion-card').forEach(card => {
+    card.addEventListener('click', function(e) {
+      const newIntention = this.dataset.suggestionIntention;
+      if (newIntention) {
+        // Ajouter la nouvelle intention
+        if (!simulatorState.intentions.includes(newIntention)) {
+          simulatorState.intentions.push(newIntention);
+        }
+        
+        // Retour à l'étape 1 pour configurer la nouvelle solution
+        simulatorState.currentStep = 1;
+        renderStep();
+        
+        // Scroll vers le haut
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    });
+  });
 }
 
 // ============================================================================
