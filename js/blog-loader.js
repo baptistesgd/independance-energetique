@@ -6,8 +6,36 @@
 // Liste des articles de blog (à mettre à jour manuellement)
 const blogArticles = [
   {
+    title: "Batterie domestique : Le guide complet 2026",
+    slug: "batterie-domestique-guide-complet-2026", // ✅ Page existante
+    excerpt: "Lithium-ion vs LFP, dimensionnement, coûts réels, durée de vie : tout ce qu'il faut savoir avant d'investir dans une batterie de stockage.",
+    category: "Batteries",
+    readTime: "12 min",
+    author: {
+      name: "Marc L.",
+      initials: "ML",
+      color: "#4A90E2"
+    },
+    date: "2025-02-06",
+    dateFormatted: "6 fév. 2025"
+  },
+  {
+    title: "Rentabilité du solaire en autoconsommation",
+    slug: "rentabilite-solaire-autoconsommation", // ✅ Page existante
+    excerpt: "Calcul du TRI, impact du taux d'autoconsommation, optimisation du ROI : les vrais chiffres de la rentabilité photovoltaïque en 2025.",
+    category: "ROI",
+    readTime: "10 min",
+    author: {
+      name: "Sophie D.",
+      initials: "SD",
+      color: "#27AE60"
+    },
+    date: "2025-02-05",
+    dateFormatted: "5 fév. 2025"
+  },
+  {
     title: "Aides État 2026 : Le guide complet des subventions photovoltaïques",
-    slug: "aides-etat-photovoltaique-2026", // Sans /blog/ ni .html (ajoutés automatiquement)
+    slug: "aides-etat-photovoltaique-2026", // À créer
     excerpt: "Prime autoconsommation, crédit d'impôt batterie, TVA réduite : toutes les aides cumulables pour votre installation solaire en 2026.",
     category: "Aides & Financement",
     readTime: "8 min",
@@ -21,7 +49,7 @@ const blogArticles = [
   },
   {
     title: "Recharger sa Tesla gratuitement avec des panneaux solaires",
-    slug: "recharger-tesla-panneaux-solaires",
+    slug: "recharger-tesla-panneaux-solaires", // À créer
     excerpt: "Guide complet : dimensionnement, installation borne, pilotage surplus solaire. Économisez 1 500€/an sur vos recharges.",
     category: "Véhicule Électrique",
     readTime: "14 min",
@@ -32,34 +60,6 @@ const blogArticles = [
     },
     date: "2025-01-05",
     dateFormatted: "5 janv. 2025"
-  },
-  {
-    title: "Batterie domestique : Le guide complet 2026",
-    slug: "batterie-domestique-guide-complet-2026", // ✅ Page existante
-    excerpt: "Lithium-ion vs LFP, dimensionnement, coûts réels, durée de vie : tout ce qu'il faut savoir avant d'investir dans une batterie de stockage.",
-    category: "Batteries",
-    readTime: "12 min",
-    author: {
-      name: "Marc L.",
-      initials: "ML",
-      color: "#4A90E2"
-    },
-    date: "2024-12-15",
-    dateFormatted: "15 déc. 2024"
-  },
-  {
-    title: "Rentabilité du solaire en autoconsommation",
-    slug: "rentabilite-solaire-autoconsommation", // ✅ Page existante
-    excerpt: "Calcul du TRI, impact du taux d'autoconsommation, optimisation du ROI : les vrais chiffres de la rentabilité photovoltaïque en 2025.",
-    category: "ROI",
-    readTime: "10 min",
-    author: {
-      name: "Sophie D.",
-      initials: "SD",
-      color: "#27AE60"
-    },
-    date: "2024-12-10",
-    dateFormatted: "10 déc. 2024"
   }
 ];
 
