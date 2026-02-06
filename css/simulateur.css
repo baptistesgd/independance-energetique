@@ -1,0 +1,1026 @@
+/* ============================================================================
+   SIMULATEUR D'INDÉPENDANCE ÉNERGÉTIQUE - STYLES
+   Respecte la charte graphique du site principal
+   ============================================================================ */
+
+/* Variables reprises du site principal */
+:root {
+  --primary-color: #2563eb;
+  --primary-dark: #1e40af;
+  --success-color: #10b981;
+  --warning-color: #f59e0b;
+  --danger-color: #ef4444;
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-500: #6b7280;
+  --gray-700: #374151;
+  --gray-900: #111827;
+}
+
+/* ============================================================================
+   CONTENEUR PRINCIPAL
+   ============================================================================ */
+
+.simulator-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* ============================================================================
+   BARRE DE PROGRESSION
+   ============================================================================ */
+
+.simulator-progress {
+  margin-bottom: 40px;
+}
+
+.progress-bar {
+  height: 8px;
+  background: var(--gray-200);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary-color), var(--success-color));
+  transition: width 0.5s ease;
+  border-radius: 4px;
+}
+
+.progress-text {
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--gray-500);
+  font-weight: 500;
+}
+
+/* ============================================================================
+   ÉTAPES
+   ============================================================================ */
+
+.step-container {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.step-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.step-subtitle {
+  font-size: 1.1rem;
+  color: var(--gray-500);
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* ============================================================================
+   INTENTIONS (ÉTAPE 0)
+   ============================================================================ */
+
+.intentions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.intention-card {
+  background: white;
+  border: 2px solid var(--gray-200);
+  border-radius: 12px;
+  padding: 30px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.intention-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(37, 99, 235, 0.1);
+  border-color: var(--primary-color);
+}
+
+.intention-card.selected {
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+  border-color: var(--primary-color);
+  color: white;
+}
+
+.intention-card.intention-pack {
+  grid-column: 1 / -1;
+  background: linear-gradient(135deg, var(--success-color), #059669);
+  color: white;
+  border-color: var(--success-color);
+}
+
+.intention-card.intention-pack:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
+}
+
+.intention-icon {
+  font-size: 3.5rem;
+  margin-bottom: 15px;
+}
+
+.intention-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.intention-desc {
+  font-size: 0.9rem;
+  opacity: 0.85;
+  margin-bottom: 10px;
+}
+
+.intention-badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+.intention-card.selected .intention-title,
+.intention-card.selected .intention-desc {
+  color: white;
+}
+
+/* ============================================================================
+   FORMULAIRES
+   ============================================================================ */
+
+.form-group {
+  margin-bottom: 30px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  color: var(--gray-700);
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+.label-icon {
+  margin-right: 8px;
+  font-size: 1.2rem;
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid var(--gray-200);
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.input-hint {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.85rem;
+  color: var(--gray-500);
+}
+
+/* Range slider */
+.form-range {
+  width: 100%;
+  height: 8px;
+  border-radius: 5px;
+  background: var(--gray-200);
+  outline: none;
+  -webkit-appearance: none;
+}
+
+.form-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.4);
+}
+
+.form-range::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.4);
+}
+
+.range-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+  font-size: 0.85rem;
+  color: var(--gray-500);
+}
+
+/* ============================================================================
+   OPTIONS ET CARTES
+   ============================================================================ */
+
+.options-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+}
+
+.option-card {
+  background: var(--gray-50);
+  border: 2px solid var(--gray-200);
+  border-radius: 12px;
+  padding: 20px 15px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.option-card:hover {
+  border-color: var(--primary-color);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(37, 99, 235, 0.1);
+}
+
+.option-card.selected {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  color: white;
+}
+
+.option-card-large {
+  padding: 30px 20px;
+}
+
+.option-card-add {
+  border-style: dashed;
+  background: white;
+}
+
+.option-card-add:hover {
+  background: var(--gray-50);
+  border-style: solid;
+}
+
+.option-icon {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.option-label {
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+.option-desc {
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+.option-badge {
+  display: inline-block;
+  background: rgba(16, 185, 129, 0.15);
+  color: var(--success-color);
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+.option-card.selected .option-label,
+.option-card.selected .option-desc,
+.option-card.selected .option-badge {
+  color: white;
+}
+
+.option-card.selected .option-badge {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* ============================================================================
+   AFFICHAGE DE LA CONSOMMATION
+   ============================================================================ */
+
+.consumption-display {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.consumption-card {
+  background: var(--gray-50);
+  border: 2px solid var(--gray-200);
+  border-radius: 12px;
+  padding: 25px;
+  text-align: center;
+}
+
+.consumption-label {
+  font-size: 0.9rem;
+  color: var(--gray-500);
+  margin-bottom: 10px;
+}
+
+.consumption-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 5px;
+}
+
+.consumption-period {
+  font-size: 0.85rem;
+  color: var(--gray-500);
+}
+
+/* ============================================================================
+   ÉQUIPEMENTS
+   ============================================================================ */
+
+.equipment-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
+}
+
+.equipment-card {
+  background: white;
+  border: 2px solid var(--gray-200);
+  border-radius: 12px;
+  padding: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.equipment-card:hover {
+  border-color: var(--primary-color);
+  box-shadow: 0 5px 15px rgba(37, 99, 235, 0.1);
+}
+
+.equipment-card input[type="checkbox"] {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: var(--primary-color);
+}
+
+.equipment-card label {
+  cursor: pointer;
+  display: block;
+}
+
+.equipment-icon {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.equipment-name {
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 8px;
+  color: var(--gray-900);
+}
+
+.equipment-benefit {
+  font-size: 0.85rem;
+  color: var(--gray-500);
+}
+
+.equipment-card input[type="checkbox"]:checked ~ label {
+  color: var(--primary-color);
+}
+
+/* ============================================================================
+   RÉSULTATS
+   ============================================================================ */
+
+.results-hero {
+  background: linear-gradient(135deg, var(--success-color), #059669);
+  color: white;
+  padding: 40px;
+  border-radius: 15px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.results-hero h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.autonomy-display {
+  margin: 30px 0;
+}
+
+.autonomy-value {
+  font-size: 5rem;
+  font-weight: 700;
+  line-height: 1;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.autonomy-label {
+  font-size: 1.3rem;
+  margin-top: 10px;
+  opacity: 0.95;
+}
+
+/* ============================================================================
+   GRAPHIQUE
+   ============================================================================ */
+
+.chart-section {
+  background: white;
+  border: 2px solid var(--gray-200);
+  border-radius: 15px;
+  padding: 30px;
+  margin-bottom: 40px;
+}
+
+.chart-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.chart-container {
+  max-width: 400px;
+  margin: 0 auto 30px;
+}
+
+.chart-legend {
+  margin-top: 30px;
+}
+
+.legend-items {
+  display: grid;
+  gap: 12px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  background: var(--gray-50);
+  border-radius: 8px;
+}
+
+.legend-color {
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.legend-label {
+  flex: 1;
+  font-weight: 600;
+  color: var(--gray-700);
+}
+
+.legend-value {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--gray-900);
+}
+
+/* ============================================================================
+   SUGGESTIONS
+   ============================================================================ */
+
+.suggestions-section {
+  margin-bottom: 40px;
+}
+
+.suggestions-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.suggestions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.suggestion-card {
+  background: white;
+  border: 2px dashed var(--gray-300);
+  border-radius: 12px;
+  padding: 25px;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.suggestion-card:hover {
+  border-style: solid;
+  border-color: var(--primary-color);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 20px rgba(37, 99, 235, 0.15);
+}
+
+.suggestion-icon {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+.suggestion-title {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--gray-900);
+  margin-bottom: 10px;
+}
+
+.suggestion-benefit {
+  color: var(--success-color);
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+}
+
+.suggestion-impact {
+  color: var(--gray-500);
+  font-size: 0.85rem;
+  margin-bottom: 10px;
+}
+
+.suggestion-cost {
+  font-weight: 600;
+  color: var(--gray-700);
+  font-size: 0.9rem;
+}
+
+/* ============================================================================
+   FINANCIER
+   ============================================================================ */
+
+.financial-section {
+  margin-bottom: 40px;
+}
+
+.financial-section h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.financial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+}
+
+.financial-card {
+  background: white;
+  border: 2px solid var(--gray-200);
+  border-radius: 12px;
+  padding: 25px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.financial-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.financial-card-highlight {
+  background: linear-gradient(135deg, var(--success-color), #059669);
+  color: white;
+  border-color: var(--success-color);
+}
+
+.financial-icon {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.financial-label {
+  font-size: 0.85rem;
+  opacity: 0.8;
+  margin-bottom: 10px;
+}
+
+.financial-value {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.financial-period {
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+.financial-card-highlight .financial-label,
+.financial-card-highlight .financial-value,
+.financial-card-highlight .financial-period {
+  color: white;
+}
+
+/* ============================================================================
+   INVESTISSEMENT
+   ============================================================================ */
+
+.investment-section {
+  background: var(--gray-50);
+  border: 2px solid var(--gray-200);
+  border-radius: 12px;
+  padding: 30px;
+  margin-bottom: 40px;
+}
+
+.investment-breakdown {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.investment-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.investment-row:last-child {
+  border-bottom: none;
+}
+
+.investment-label {
+  font-size: 1rem;
+  color: var(--gray-700);
+}
+
+.investment-value {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--gray-900);
+}
+
+.investment-row-positive .investment-value {
+  color: var(--success-color);
+}
+
+.investment-row-total {
+  padding-top: 20px;
+  margin-top: 10px;
+  border-top: 2px solid var(--gray-300);
+  border-bottom: none;
+}
+
+.investment-row-total .investment-label {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.investment-row-total .investment-value {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+}
+
+/* ============================================================================
+   CONTACT
+   ============================================================================ */
+
+.contact-section {
+  background: white;
+  border: 2px solid var(--gray-200);
+  border-radius: 15px;
+  padding: 40px;
+}
+
+.contact-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.contact-subtitle {
+  font-size: 1rem;
+  color: var(--gray-500);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.checkbox-label input[type="checkbox"] {
+  margin-top: 3px;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: var(--primary-color);
+  flex-shrink: 0;
+}
+
+.checkbox-label span {
+  font-size: 0.9rem;
+  color: var(--gray-600);
+}
+
+/* ============================================================================
+   SUCCÈS
+   ============================================================================ */
+
+.success-container {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.success-icon {
+  font-size: 5rem;
+  margin-bottom: 30px;
+}
+
+.success-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: 20px;
+}
+
+.success-message {
+  font-size: 1.2rem;
+  color: var(--gray-600);
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.success-email {
+  font-size: 1rem;
+  color: var(--gray-500);
+  margin-bottom: 40px;
+}
+
+/* ============================================================================
+   INFO BOXES
+   ============================================================================ */
+
+.info-box {
+  padding: 15px 20px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.info-box strong {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.info-success {
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  color: #065f46;
+}
+
+.info-warning {
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  color: #92400e;
+}
+
+.info-info {
+  background: rgba(37, 99, 235, 0.1);
+  border: 1px solid rgba(37, 99, 235, 0.3);
+  color: #1e3a8a;
+}
+
+/* ============================================================================
+   BOUTONS
+   ============================================================================ */
+
+.simulator-navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+  gap: 15px;
+}
+
+.btn {
+  padding: 14px 32px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+  color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+}
+
+.btn-secondary {
+  background: var(--gray-100);
+  color: var(--gray-700);
+}
+
+.btn-secondary:hover {
+  background: var(--gray-200);
+}
+
+.btn-large {
+  width: 100%;
+  padding: 16px 32px;
+  font-size: 1.1rem;
+}
+
+/* ============================================================================
+   AUTRES
+   ============================================================================ */
+
+.divider {
+  text-align: center;
+  margin: 30px 0;
+  position: relative;
+}
+
+.divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--gray-200);
+}
+
+.divider span {
+  background: white;
+  padding: 0 15px;
+  position: relative;
+  color: var(--gray-500);
+  font-size: 0.9rem;
+}
+
+.question-box {
+  background: var(--gray-50);
+  border: 2px solid var(--gray-200);
+  border-radius: 12px;
+  padding: 30px;
+}
+
+.question-box h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: 15px;
+}
+
+.question-box p {
+  color: var(--gray-600);
+  margin-bottom: 20px;
+}
+
+/* ============================================================================
+   RESPONSIVE
+   ============================================================================ */
+
+@media (max-width: 768px) {
+  .step-title {
+    font-size: 1.5rem;
+  }
+  
+  .step-subtitle {
+    font-size: 1rem;
+  }
+  
+  .intentions-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .intention-card.intention-pack {
+    grid-column: 1;
+  }
+  
+  .options-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .equipment-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .financial-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .suggestions-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .autonomy-value {
+    font-size: 3.5rem;
+  }
+  
+  .consumption-value {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .simulator-wrapper {
+    padding: 15px;
+  }
+  
+  .financial-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .btn {
+    padding: 12px 24px;
+    font-size: 0.9rem;
+  }
+}
