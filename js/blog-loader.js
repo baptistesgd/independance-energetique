@@ -7,7 +7,7 @@
 const blogArticles = [
   {
     title: "Aides État 2026 : Le guide complet des subventions photovoltaïques",
-    slug: "/blog/aides-etat-photovoltaique-2026",
+    slug: "aides-etat-photovoltaique-2026", // Sans /blog/ ni .html (ajoutés automatiquement)
     excerpt: "Prime autoconsommation, crédit d'impôt batterie, TVA réduite : toutes les aides cumulables pour votre installation solaire en 2026.",
     category: "Aides & Financement",
     readTime: "8 min",
@@ -21,7 +21,7 @@ const blogArticles = [
   },
   {
     title: "Recharger sa Tesla gratuitement avec des panneaux solaires",
-    slug: "/blog/recharger-tesla-panneaux-solaires",
+    slug: "recharger-tesla-panneaux-solaires",
     excerpt: "Guide complet : dimensionnement, installation borne, pilotage surplus solaire. Économisez 1 500€/an sur vos recharges.",
     category: "Véhicule Électrique",
     readTime: "14 min",
@@ -34,8 +34,8 @@ const blogArticles = [
     dateFormatted: "5 janv. 2025"
   },
   {
-    title: "Batterie domestique : Le guide complet 2024",
-    slug: "/blog/batterie-domestique-guide-complet-2024",
+    title: "Batterie domestique : Le guide complet 2026",
+    slug: "batterie-domestique-guide-complet-2026", // ✅ Page existante
     excerpt: "Lithium-ion vs LFP, dimensionnement, coûts réels, durée de vie : tout ce qu'il faut savoir avant d'investir dans une batterie de stockage.",
     category: "Batteries",
     readTime: "12 min",
@@ -49,7 +49,7 @@ const blogArticles = [
   },
   {
     title: "Rentabilité du solaire en autoconsommation",
-    slug: "/blog/rentabilite-solaire-autoconsommation",
+    slug: "rentabilite-solaire-autoconsommation", // ✅ Page existante
     excerpt: "Calcul du TRI, impact du taux d'autoconsommation, optimisation du ROI : les vrais chiffres de la rentabilité photovoltaïque en 2025.",
     category: "ROI",
     readTime: "10 min",
@@ -72,6 +72,9 @@ function sortArticlesByDate(articles) {
 function generateArticleHTML(article, index) {
   const animationDelay = index > 0 ? ` data-delay="${index * 100}"` : '';
   
+  // Construction automatique de l'URL : /blog/{slug}.html
+  const articleUrl = `/blog/${article.slug}.html`;
+  
   return `
     <article class="blog-card" data-animate="slide-up"${animationDelay}>
         <div class="blog-meta">
@@ -79,7 +82,7 @@ function generateArticleHTML(article, index) {
             <span class="blog-reading-time">${article.readTime}</span>
         </div>
         <h3 class="blog-title">
-            <a href="${article.slug}">
+            <a href="${articleUrl}">
                 ${article.title}
             </a>
         </h3>
